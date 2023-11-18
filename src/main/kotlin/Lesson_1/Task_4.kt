@@ -27,12 +27,14 @@ package Lesson_1
  */
 
 fun main(){
+
    val distance: Long = 40_868_600_000
     val age: Byte = 27
-    val partOfDay: Double = 0.075
+    val partOfDay: Float = 0.075F
     val sec: Int = 6480
-    val partOfYear: Float = 2.0547945205479453E-4F
+    val partOfYear: Double  = 2.0547945205479453E-4
     val orbit: Int = 327000
+
     println(distance)
     println(age)
     println(partOfDay)

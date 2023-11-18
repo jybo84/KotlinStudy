@@ -11,21 +11,14 @@ package Lesson_1
 // 108 минут
 fun main(){
 
-    val totalTimeSec = 6480
-    var totalTimeHour = 6480 / 60
-    var totalTimeMin = totalTimeHour / 60
-    var remainTotalHour =  totalTimeHour % 60
-    var remainTotalMin = totalTimeMin % 60
+    val totalTimeSec = 6480  // общее количество секунд
+    var totalTimeMin = 6480 / 60 // общее количеество минут - 108
+    var totalTimeHour = totalTimeMin / 60 // общее количество часов - 1
+    var remainMin = totalTimeMin % 60 // остаток минут от часа - 48
+    val sec = 0
 
-    val hour = 1
-    val min = 48
-    val zero = 0
+    val tot = "%02d:%02d:%02d".format(totalTimeHour,remainMin,sec)  // задаем формат вывода чисел
 
+    println("Ю.Гагарин облетел земной шар за $tot")   // выводим что получилось
 
-    println(totalTimeHour)
-    println(totalTimeMin)
-    println(remainTotalHour)
-    println(remainTotalMin)
-    println()
-    println("Ю.Гагарин облетел земной шар за $zero$hour:$min:$zero$zero")
 }

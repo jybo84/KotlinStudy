@@ -17,15 +17,17 @@ fun main() {
     val hourStart = 9
     val minStart = 39
     val timeOfWay = 457
-
-    val hourEnd = timeOfWay / 60
-    val minEnd = timeOfWay % 60
-    var totalHour = hourStart + hourEnd
-    var totalMin = minStart + minEnd
-
-    if (totalMin > 59) {
-        totalMin = (totalMin % 60)
-        totalHour++
+    val minVal = 60
+    val secVal = 60
+                                     // пробел для читаемости кода
+    val hourEnd = timeOfWay / secVal // вчисляем количество часов поезда в пути
+    val minEnd = timeOfWay % minVal // вычисляем остаток минут поезда в пути за вычетом часов
+    var totalHour = hourStart + hourEnd // вычисляем час прибытия
+    var totalMin = minStart + minEnd // вычисляем минуту прибытия
+                                     // пробел для читаемости кода
+    if (totalMin > minVal) {         // задаем условие, если количество минут больше 60, то прибавляем
+        totalMin = (totalMin % secVal) // один час, и выстываем минуты
+        totalHour++                    // <--- вот этот час
     }
-    println("Поезд прибудет на станцию в $totalHour:$totalMin")
+    println("Поезд прибудет на станцию в $totalHour:$totalMin") // выводим результат
 }

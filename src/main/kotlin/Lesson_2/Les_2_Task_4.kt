@@ -16,10 +16,11 @@ fun main(){
     val iron = "Железная руда"
     val num1 = 7
     val num2 = 11
+    val bonus = 0.2
 
-    val crystalBonus = (num1 * 0.2).toInt()
+    val crystalBonus = (num1 * bonus).toInt()
     println("Вы получили $crystalBonus  бонусный $crystal")
 
-    val ironBonus = (num2 * 0.2).toInt()
+    val ironBonus = (num2 * bonus).toInt()
     println("Вы получили $ironBonus единиц  $iron ")
 }

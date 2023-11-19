@@ -10,7 +10,6 @@ package Lesson_1
  */
 // 108 минут
 fun main(){
-
     val totalTimeSec = 6480  // общее количество секунд
     var totalTimeMin = 6480 / 60 // общее количеество минут - 108
     var totalTimeHour = totalTimeMin / 60 // общее количество часов - 1

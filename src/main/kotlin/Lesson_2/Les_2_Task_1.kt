@@ -16,7 +16,7 @@ fun main(){
     val stud3 = 3
     val stud4 = 5
 
-    var medium = (stud1 + stud2 + stud3 + stud4) / 4F
+    val medium = (stud1 + stud2 + stud3 + stud4) / 4F
     println(medium)
 
 }

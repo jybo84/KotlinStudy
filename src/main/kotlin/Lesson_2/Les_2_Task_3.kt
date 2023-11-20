@@ -13,20 +13,20 @@ import kotlin.math.min
  – Выведи результат в консоль.
  */
 
+
+const val SEC_MIN = 60 // создал одну константу сразу и для секунд и для минут
 fun main() {
     val hourStart = 9
     val minStart = 39
     val timeOfWay = 457
-    val minVal = 60
-    val secVal = 60
                                      // пробел для читаемости кода
-    val hourEnd = timeOfWay / secVal // вчисляем количество часов поезда в пути
-    val minEnd = timeOfWay % minVal // вычисляем остаток минут поезда в пути за вычетом часов
+    val hourEnd = timeOfWay / SEC_MIN // вчисляем количество часов поезда в пути
+    val minEnd = timeOfWay % SEC_MIN // вычисляем остаток минут поезда в пути за вычетом часов
     var totalHour = hourStart + hourEnd // вычисляем час прибытия
     var totalMin = minStart + minEnd // вычисляем минуту прибытия
                                      // пробел для читаемости кода
-    if (totalMin > minVal) {         // задаем условие, если количество минут больше 60, то прибавляем
-        totalMin = (totalMin % secVal) // один час, и выстываем минуты
+    if (totalMin > SEC_MIN) {         // задаем условие, если количество минут больше 60, то прибавляем
+        totalMin = (totalMin % SEC_MIN) // один час, и выстываем минуты
         totalHour++                    // <--- вот этот час
     }
     println("Поезд прибудет на станцию в $totalHour:$totalMin") // выводим результат

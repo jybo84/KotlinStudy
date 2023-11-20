@@ -16,7 +16,7 @@ fun main(){
     val nameOfFather = "Сергеевна"
 
     println("Введите возраст")
-    var age: Int = Integer.valueOf(readln())
+    val age = readln().toInt()
 
     if(age <= 21)
         println("$family1 $name $nameOfFather")

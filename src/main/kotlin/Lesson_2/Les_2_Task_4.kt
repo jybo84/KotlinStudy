@@ -1,7 +1,5 @@
 package Lesson_2
 
-import kotlin.time.times
-
 /*
 Задача 4 к Уроку 2
 
@@ -18,13 +16,13 @@ fun main(){
     val iron = "Железная руда"
     val num1 = 7
     val num2 = 11
-    //val bonus = 0.2
-    val bonus = 20 / 100F
+    val bonus = 20 // согласно условия добавлена переменная
 
-    val crystalBonus = (num1 * bonus).toInt()
+
+    val crystalBonus = (num1 * (bonus / 100F)).toInt() // добавлена логика вычисления для условия задачи
     println("Вы получили $crystalBonus  бонусный $crystal")
 
-    val ironBonus = (num2 * bonus).toInt()
+    val ironBonus = (num2 * (bonus / 100F)).toInt() // добавлена логика вычисления для условия задачи
     println("Вы получили $ironBonus единиц  $iron ")
 
 }

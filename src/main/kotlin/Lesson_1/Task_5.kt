@@ -9,12 +9,13 @@ package Lesson_1
 - Значения часов, минут и секунд отображать двумя цифрами.
  */
 // 108 минут
+const val secMin = 60  // добавлена константа + изменения в код
 fun main(){
     val totalTimeSec = 6480  // общее количество секунд
-    var totalTimeMin = 6480 / 60 // общее количеество минут - 108
-    var totalTimeHour = totalTimeMin / 60 // общее количество часов - 1
-    var remainMin = totalTimeMin % 60 // остаток минут от часа - 48
-    val sec = 0
+    var totalTimeMin = 6480 / secMin // общее количеество минут - 108
+    var totalTimeHour = totalTimeMin / secMin // общее количество часов - 1
+    var remainMin = totalTimeMin % secMin // остаток минут от часа - 48
+    val sec = remainMin / secMin          // добавлена логика для секунд
 
     val tot = "%02d:%02d:%02d".format(totalTimeHour,remainMin,sec)  // задаем формат вывода чисел
 

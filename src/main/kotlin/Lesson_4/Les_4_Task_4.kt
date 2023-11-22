@@ -18,33 +18,30 @@ package Lesson_4
 - при изменении значения переменной дня тренировки на 1 день вперед, вывод должен меняться.
  */
 
-@OptIn(ExperimentalStdlibApi::class)
+
 fun main() {
     val taskForHand = true
     val taskForBelly = true
     val taskForFoot = true
     val taskForBack = true
-    //var numberOfDay = 4
 
     println("какой день Вы тренируетесь")
     var numberOfDay = readln().toInt()
 
-    while (true) {
-        if (numberOfDay % 2 != 0) {
-            // numberOfDay++
-            println(
-                """
-            Сегодня $numberOfDay занятий   
+    if (numberOfDay % 2 != 0) {
+        println(
+            """
+            Сегодня $numberOfDay-ое занятие   
             Упражнения для рук: ${taskForHand}
             Упражнения для ног: ${!taskForFoot}
             Упражнения для спины: ${!taskForBack}
             Упражнения для пресса: ${taskForBelly}
         """.trimIndent()
-            )
-        } else
-            println(
+        )
+    } else
+        println(
             """
-            Сегодня $numberOfDay занятий 
+            Сегодня $numberOfDay-ое занятий 
             Упражнения для рук: ${!taskForHand}
             Упражнения для ног: ${taskForFoot}
             Упражнения для спины: ${taskForBack}
@@ -52,8 +49,8 @@ fun main() {
             
         """.trimIndent()
         )
-        return
-    }
+    return
 }
+
 
 

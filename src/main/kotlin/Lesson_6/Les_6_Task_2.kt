@@ -14,8 +14,9 @@ fun main() {
     val setTime = timer
     println("Будильник поставлен на $timer секунд")
 
-    while (timer >= 0){
+    while (timer >= 0) {
         println(timer--)
-    Thread.sleep(1000)}
+        Thread.sleep(1000)
+    }
     println("Прошло $setTime секунд. Дзынь- Дзынь")
 }

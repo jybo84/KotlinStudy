@@ -25,17 +25,8 @@ fun main() {
         println("Введите пароль")
         val userPas = readLine()
 
-
-        if (userLog == log && userPas == password)
-            println("Авторизация прошла успешно")
-        else
-            println(
-                """
-                ВЫ ВВЕЛИ НЕВЕРНЫЕ ДАННЫЕ
-                ПОВТОРИТЕ ПОПЫТКУ ЕЩЕ РАЗ
-            """.trimIndent()
-            )
     } while (userLog != log && userPas != password)
+    println("Авторизация прошла успешно")
 }
 
 

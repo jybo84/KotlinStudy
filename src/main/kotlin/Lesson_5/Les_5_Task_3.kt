@@ -19,23 +19,19 @@ import kotlin.random.nextInt
 fun main() {
 
     val randomNum1= Random.nextInt(0..42)
+    val randomNum2= Random.nextInt(0..42)
+
     println("Угадайте первое число - ")
     val numUser1 = readln().toInt()
-    println("Случайное счисло было = $randomNum1")
-
-    val res1 = if(numUser1 == randomNum1) true else false
-    println()
-
-    val randomNum2= Random.nextInt(0..42)
     println("Угадайте второе число - ")
     val numUser2 = readln().toInt()
-    println("Случайное счисло было = $randomNum2")
 
-    val res2 = if(numUser2 == randomNum2) true else false
+    val checkUserNum1randomNum = if(numUser1 == randomNum1 || numUser1 == randomNum2) true else false
+    val checkUserNum2randomNum = if(numUser2 == randomNum1 || numUser2 == randomNum2) true else false
 
-    if(res1 == true && res2 == true) println("Вы выиграли главный приз")
-    else if( res1 == false && res2 == false) println("Неудача\nПопробуй еще раз")
+    if(checkUserNum1randomNum == true && checkUserNum2randomNum == true) println("Вы выиграли главный приз")
+    else if(checkUserNum1randomNum == false && checkUserNum2randomNum == false) println("Неудача\nПопробуй еще раз")
     else println("Вы выиграли утешительный приз")
-
+    println("Случайные числа были = $randomNum1 и $randomNum2")
     }
 

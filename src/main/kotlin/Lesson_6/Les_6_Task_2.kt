@@ -8,15 +8,14 @@ package Lesson_6
 пользователем. Программа должна вставать на паузу.
  */
 
+const val MILLISEC = 1000L
 fun main() {
     println("Введите таймер")
-    var timer = readln().toInt()
-    val setTime = timer
+    val timer = readln().toInt()
+
     println("Будильник поставлен на $timer секунд")
 
-    while (timer >= 0) {
-        println(timer--)
-        Thread.sleep(1000)
-    }
-    println("Прошло $setTime секунд. Дзынь- Дзынь")
+    Thread.sleep(timer * MILLISEC)
+
+    println("Прошло $timer секунд.\nДзынь- Дзынь")
 }

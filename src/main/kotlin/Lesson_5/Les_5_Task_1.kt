@@ -11,27 +11,19 @@ package Lesson_5
 */
 
 fun main() {
-    val test = "2 + 2 = "
-
-    println("""
+    val firstNum = 2
+    val secondNum = 2
+    val res = firstNum + secondNum
+    println(
+        """
         Подтвердите что Вы не бот
-        Решите задачу -> $test
-    """.trimIndent())
+        Решите задачу -> $firstNum + $secondNum
+    """.trimIndent()
+    )
+    val userNum = readln().toInt()
 
-    var num = readln().toInt()
-
-    //Вариант № 1
-
-    when(num) {
-        4 -> println("Добро пожаловать!")
-        else -> println("Доступ запрещен ")
-    }
-
-
-    //Вариант № 2
-
-
-    var res = if (num == 4) "Добро пожаловать!" else "Доступ запрещен"
-
-    println(res)
+    val total = if(userNum == res)"Добро пожаловать!" else "Доступ запрещен"
+    println(total)
 }
+
+

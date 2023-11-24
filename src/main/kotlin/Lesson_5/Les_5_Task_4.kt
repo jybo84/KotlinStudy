@@ -26,11 +26,10 @@ const val PASSWORD = "PanGalactic"
 
 fun main(){
     println("Введите логин")
-    val userLog = readLine()!!.capitalize()
-
+    val userLog = readln()
 
     println("Введите пароль")
-    val userPas = readLine()
+    val userPas = readln()
 
     println("""
         Вы ввели
@@ -40,6 +39,6 @@ fun main(){
     if(userLog == LOG && userPas == PASSWORD) println("Приветсвенное сообщение")
     else {
         println("Вы не зарегестрированы в системе\nПредлагаю зарегистрироваться")
-        return
+
     }
 }

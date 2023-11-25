@@ -26,9 +26,9 @@ fun main() {
     val taskForBack = true
 
     println("какой день Вы тренируетесь")
-    var numberOfDay = readln().toInt()
-
-    if (numberOfDay % 2 != 0) {
+    val numberOfDay = readln().toInt()
+    val evenDay = if (numberOfDay % 2 == 0) false else true
+    if (evenDay == false) {
         println(
             """
             Сегодня $numberOfDay-ое занятие   

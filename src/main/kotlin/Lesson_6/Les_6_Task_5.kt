@@ -31,20 +31,19 @@ fun main() {
     do {
         val userNum = readln().toInt()
         attempt--
-        if (attempt <= 0) {
+        if (attempt <= 0 && userNum != trueRes) {
             println("Доступ запрещен")
             return
         }
         if (userNum != trueRes) {
             println("Неверно. Осталось $attempt попытки.")
         }
-        if (userNum == trueRes)
+    } while (userNum != trueRes)
             println(
                 """
             Авторизация прошла успешно.
             ДОБРО ПОЖАЛОВАТЬ
         """.trimIndent()
             )
-    } while (userNum != trueRes)
 }
 

@@ -17,8 +17,7 @@ package Lesson_9
 
 fun main() {
     val ingridients = mutableListOf("вода", "чайный пакетик", "сахар")
-    print("В рецепте есть базовые ингредиенты: ")
-    ingridients.forEach { el -> print("$el ") }
+    print("В рецепте есть базовые ингредиенты: ${ingridients.joinToString(", ")}")
     println()
     println("Желаете добавить еще? ")
     val answer = readln()
@@ -29,7 +28,6 @@ fun main() {
     } else {
         return
     }
-    print("Теперь в рецепте есть следующие ингредиенты:  ")
-    ingridients.forEach { el -> print("$el ") }
+    print("Теперь в рецепте есть следующие ингредиенты: ${ingridients.joinToString(", ")}")
 }
 

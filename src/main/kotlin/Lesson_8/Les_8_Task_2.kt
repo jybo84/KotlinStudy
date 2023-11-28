@@ -16,14 +16,28 @@ fun main() {
     val ingridients = arrayOf("вода", "лимон", "чайный пакетик", "сахар")
     println("Введите искомый ингридиент")
 
-    val userIngridients = "лимон"
+    val userIngridients = "имон"
+    var flag = false                                            // выставляем флаг
 
-    ingridients.forEach { t ->
-        if(t == userIngridients) println("да")
-        else println("нет")
+    for (el in ingridients) {
+        if (el == userIngridients) {
+            flag = true                                    // присваиваем флагу значение
+            break
+        }
+    }
+    if (flag) {                                              // новые условия согласно значению флага
+        println("Ингридиент $userIngridients ЕСТЬ в рецепте")
+    } else {
+        println("Ингридиента $userIngridients в рецепте НЕТ")
+    }
+}
 
-    }
-    }
+
+
+
+
+
+
 
 
 

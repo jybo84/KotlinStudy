@@ -15,17 +15,32 @@ fun main() {
 
     val userSize = readln().toInt()
 
-    val book = Array<String>(userSize) { "" }
-
     println("Введите элементы")
-    // var userIngridient = readln()
 
-    for (i in 0 until userSize) {
-        book[i] = readln()
-    }
-    print("Список ваших ингридиентов: ")
+    val book = Array<String>(userSize) { el -> readln() }  // круто, даже не догадывался что так можно. Удобно
+    print("Список ваших ингридиентов:  ${book.joinToString(", ").replaceFirstChar { it.uppercase() }}")
 
-    book.forEach { el -> print("$el, ") }
 }
+
+
+// так было
+
+/*  println("сколько будет ингридиентов")
+
+  val userSize = readln().toInt()
+
+  val book = Array<String>(userSize) { "" }
+
+  println("Введите элементы")
+  // var userIngridient = readln()       // изначально в цикл вместо readln() вставлял userIngridient, но так не работает
+                                         // я так пониманию цикл видит только то что в нем самом.
+                                         // а оставляю я, что б ты мог отслеживать ход моих мыслей, ну и направлять
+  for (i in 0 until userSize) {
+      book[i] = readln()
+  }
+  print("Список ваших ингридиентов: ")
+
+  book.forEach { el -> print("$el, ") }
+}*/
 
 

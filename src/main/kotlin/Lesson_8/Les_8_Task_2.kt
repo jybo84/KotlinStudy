@@ -16,20 +16,15 @@ fun main() {
     val ingridients = arrayOf("вода", "лимон", "чайный пакетик", "сахар")
     println("Введите искомый ингридиент")
 
-    val userIngridients = "имон"
-    var flag = false                                            // выставляем флаг
+    val userIngridients = readln()
 
     for (el in ingridients) {
         if (el == userIngridients) {
-            flag = true                                    // присваиваем флагу значение
-            break
+            println("Ингридиент ${userIngridients.uppercase()} ЕСТЬ в рецепте")
+            return
         }
     }
-    if (flag) {                                              // новые условия согласно значению флага
-        println("Ингридиент $userIngridients ЕСТЬ в рецепте")
-    } else {
-        println("Ингридиента $userIngridients в рецепте НЕТ")
-    }
+    println("Ингридиента ${userIngridients.uppercase()} в рецепте НЕТ")
 }
 
 

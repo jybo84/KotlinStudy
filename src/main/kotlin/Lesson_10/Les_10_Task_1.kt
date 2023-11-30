@@ -16,16 +16,16 @@ import kotlin.random.nextInt
  */
 fun main() {
     println("Бросок человека")
- val humanNum =  getRandomNum()
+    val humanNum = getRandomNum()
     println(humanNum)
 
     println("Бросок компьютера")
-    val  compNum = getRandomNum()
+    val compNum = getRandomNum()
     println(compNum)
 
-    val res = if(humanNum > compNum)"Победило человечество" else "Победила машина"
+    val res = if (humanNum > compNum) "Победило человечество" else "Победила машина"
     println(res)
 }
 
-fun getRandomNum(): Int =  Random.nextInt(1..6)
+fun getRandomNum(): Int = Random.nextInt(1..6)
 

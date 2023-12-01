@@ -24,17 +24,19 @@ fun main() {
     while (true) {
         println("Бросок человека")
         Thread.sleep(1000)
-        println(moveHuman())
+        val first = moveHuman()
+        println(first)
         Thread.sleep(1000)
 
         println("Бросок компьютера")
         Thread.sleep(1000)
-        println(moveComp())
+        val second = moveComp()
+        println(second)
 
-        if (moveHuman() > moveComp()) {
+        if (first > second) {
             println("Победило человечество")
             countHum++
-        } else if (moveHuman() < moveComp()) {
+        } else if (first < second) {
             println("Победила машина")
             countComp++
         } else {

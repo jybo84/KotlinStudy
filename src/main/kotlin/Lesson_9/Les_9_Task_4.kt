@@ -12,6 +12,18 @@ package Lesson_9
  */
 
 fun main() {
+    println("Введите 5 ингридиентов")
+    val userIngridient = readln()
+
+    val userIngridientSplit = userIngridient.split(", ")
+
+    println("Отсортированный список ${userIngridientSplit.sorted().joinToString(", ")}")
+    // применил joinToString, что б вывод был  одной строкой, а не списком
+}
+
+
+// Старый способ (критика)
+/*fun main() {
     println("Введите 5 ингридиентов, через запятую")
     val listIngrid = mutableListOf<String>()
 
@@ -27,10 +39,4 @@ fun main() {
     newListIngrid.forEach{el-> println(el) }
 }
 
-/*А как осуществить ввод в одну строку. Если я делаю заполнение, массив с клавиатуры во время создания
-val listIngrid = mutableListOf(readln())
-        ввод происходит как и требуется, но потом почему то не отрабатывают метод сортировки и метод
-        формирование итогового вывода строки (",")
-        В гугле почему то не нашел информацию.
-        можно конечно в группе спросить, но там частенько умничать начинают.
  */

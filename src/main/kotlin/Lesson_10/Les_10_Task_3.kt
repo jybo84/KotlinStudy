@@ -21,14 +21,16 @@ fun main() {
 fun generatePassword(userNum: Int): String {
     val elementNumber = ('0'..'9')
     val elementChar = ('!'..'.')
-    var sss = ""
+    var totalPassword = ""
 
     for (el in 0 until userNum) {
-        sss = sss + elementNumber.random()
-        sss = sss + elementChar.random()
+        totalPassword = totalPassword + elementNumber.random()
+        totalPassword = totalPassword + elementChar.random()
     }
-    return sss
+    return totalPassword
 }
+
+
 
 
 

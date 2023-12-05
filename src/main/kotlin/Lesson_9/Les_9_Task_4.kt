@@ -22,21 +22,3 @@ fun main() {
 }
 
 
-// Старый способ (критика)
-/*fun main() {
-    println("Введите 5 ингридиентов, через запятую")
-    val listIngrid = mutableListOf<String>()
-
-    for (el in 0..4) {
-        listIngrid.add(readln())
-    }
-    print("Список Ваших ингридиентов ${listIngrid.joinToString(", ")}")
-    val newListIngrid = listIngrid.sorted()
-    println()
-    print("Отсортированный Список  ${newListIngrid.joinToString(", ")}")
-
-    println()
-    newListIngrid.forEach{el-> println(el) }
-}
-
- */

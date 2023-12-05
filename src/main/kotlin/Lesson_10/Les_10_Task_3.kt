@@ -11,7 +11,6 @@ package Lesson_10
 - пароль должен содержать цифры от 0 до 9, специальные символы: !"#$%&'()*+,-./ и пробел (всего 16 спецсимволов).
  */
 
-
 fun main() {
     println("Давай сгенерируем пароль")
     Thread.sleep(1000)
@@ -25,9 +24,8 @@ fun generatePassword(userNum: Int): String {
     val elementChar = ('!'..'.')
     var totalPassword = ""
 
-    for (el in 0 until userNum) {
-        totalPassword = totalPassword + elementNumber.random()
-        totalPassword = totalPassword + elementChar.random()
+    for (el in 0 until userNum / 2) {
+        totalPassword = totalPassword + elementNumber.random() + elementChar.random()
     }
     return totalPassword
 }
@@ -37,19 +35,7 @@ fun generatePassword(userNum: Int): String {
 
 
 
-// Старое решение (критика)
-/*fun main() {
-    println("Давай сгенерируем пароль")
-    println("Введите длину пароля")
-    val userLength = readln().toInt()
 
-   println("Твой новый пароль: ${generationPassword(userLength)}")
-}
-
-fun generationPassword(userLenght: Int): String {
-    val element = ('0'..'9') + listOf('!', '"', '#', '$', '%', '^', '&', '*', '(', ')', '-', '+', '/', '.')
-    return (1..userLenght).map { element.random() }.joinToString("")
-}*/
 
 
 

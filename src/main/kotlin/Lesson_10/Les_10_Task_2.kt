@@ -10,29 +10,24 @@ package Lesson_10
 - если пароль или пароль меньше 4 символов – вывести сообщение: "Логин или пароль недостаточно длинные".
  */
 
+val BOTTOM_LEVEL = 4
 fun main() {
-    generationLogin()
-    generationPassword()
-}
-
-fun generationLogin(): String {
-    println("Придумайте пароль")
+  println("Придумайте логин")
     val userLogin = readln()
-    val checkLogin = userLogin.map { it }
-    if (checkLogin.size < 4)
-        println("Логин не достаточно длинный")
-    else println("Логин прошел валидацию")
-    return userLogin
+    println("Придумайте пароль")
+    val userPassword = readln()
+
+    check(userLogin, userPassword)
 }
 
-fun generationPassword(): String {
-    println("Придумайте валидацию")
-    val userPassword = readln()
-    val checkPassword = userPassword.map { it }
-    if (checkPassword.size < 4)
-        println("Пароль не достточно длинный")
-    else println("Пароль прошел валидацию")
-    return userPassword
+fun check(userLogin: String, userPassword: String) {
+    val res = if (userLogin.length < BOTTOM_LEVEL && userPassword.length < BOTTOM_LEVEL)
+        "Логин или пароль недостаточно длинные" else "Приветсвенное сообщение"
+    println(res)
 }
+
+
+
+
 
 

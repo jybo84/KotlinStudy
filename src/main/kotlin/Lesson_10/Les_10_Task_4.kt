@@ -22,15 +22,18 @@ fun main() {
     Thread.sleep(1000)
 
     while (true) {
+
         println("Бросок человека")
         Thread.sleep(1000)
-        val first = moveHuman()
+        //val first = moveHuman()
+        val first = getRandomNumber()
         println(first)
         Thread.sleep(1000)
 
         println("Бросок компьютера")
         Thread.sleep(1000)
-        val second = moveComp()
+        //val second = moveComp()
+        val second = getRandomNumber()
         println(second)
 
         if (first > second) {
@@ -45,21 +48,14 @@ fun main() {
         }
         println("Хотите сыграть еще?  ДА или НЕТ")
 
-        if (readln().equals("нет")) {
+        if (readln().equals("нет", ignoreCase = true)) {
             break
         }
     }
-    println("Игра закончена счет:  человечество $countHum : $countComp машины     ничьих $draw")
+    println("Игра закончена счет: человечество $countHum : $countComp машины / ничьих $draw")
 }
 
 fun getRandomNumber(): Int = (1..6).random()
-fun moveHuman(): Int {
-    return getRandomNumber()
-}
-
-fun moveComp(): Int {
-    return getRandomNumber()
-}
 
 
 

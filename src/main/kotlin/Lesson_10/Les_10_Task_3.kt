@@ -24,8 +24,11 @@ fun generatePassword(userNum: Int): String {
     val elementChar = ('!'..'.')
     var totalPassword = ""
 
-    for (el in 0 until userNum / 2) {
-        totalPassword = totalPassword + elementNumber.random() + elementChar.random()
+    for (el in 0 until userNum) {
+        if (el % 2 != 0)
+            totalPassword = totalPassword + elementChar.random()
+        else
+            totalPassword = totalPassword + elementNumber.random()
     }
     return totalPassword
 }

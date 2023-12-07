@@ -17,13 +17,13 @@ fun main() {
     println("Придумайте пароль")
     val userPassword = readln()
 
-    check(userLogin, userPassword)
+    checkLengthLoginAndPassword(userLogin, userPassword)
 }
 
-fun check(userLogin: String, userPassword: String) {
-    val res = if (userLogin.length < BOTTOM_LEVEL && userPassword.length < BOTTOM_LEVEL)
+fun checkLengthLoginAndPassword(userLogin: String, userPassword: String) {
+    val resultCheckOfLenght = if (userLogin.length < BOTTOM_LEVEL && userPassword.length < BOTTOM_LEVEL)
         "Логин или пароль недостаточно длинные" else "Приветсвенное сообщение"
-    println(res)
+    println(resultCheckOfLenght)
 }
 
 

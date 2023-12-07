@@ -32,26 +32,3 @@ fun generatePassword(userNum: Int): String {
     }
     return totalPassword
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

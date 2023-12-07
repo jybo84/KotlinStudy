@@ -25,14 +25,12 @@ fun main() {
 
         println("Бросок человека")
         Thread.sleep(1000)
-        //val first = moveHuman()
         val first = getRandomNumber()
         println(first)
         Thread.sleep(1000)
 
         println("Бросок компьютера")
         Thread.sleep(1000)
-        //val second = moveComp()
         val second = getRandomNumber()
         println(second)
 

@@ -1,5 +1,6 @@
 package Lesson_11
 
+
 fun main() {
     val first = User(id = 1, login = "ivan", password = "111zzz", email = "ivan@mail.ru")
     val second = User(id = 2, login = "max", password = "222xxx", email = "max@mail.ru")

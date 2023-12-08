@@ -23,4 +23,16 @@ fun main() {
     )
     println()
     room_1.roomInfo()
+
+    class ChatRoom(
+
+        val cover: String,
+        val title: String,
+        val listUser: Map<String, String>,
+    ) {
+        fun roomInfo() {
+            println("В форуме $cover, в комнате $title состоят участники $listUser  ")
+        }
+    }
+
 }

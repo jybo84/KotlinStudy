@@ -8,4 +8,12 @@ fun main() {
     println("Создан пользователь с id-${second.id} логином-${second.login} паролем-${second.password} и эл.почтой-${second.email}")
     println()
     println("Создан пользователь с id-${first.id} логином-${first.login} паролем-${first.password} и эл.почтой-${first.email}")
+
+
+class User(
+    val login: String,
+    val password: String,
+    val email: String,
+    val id: Int,
+)
 }

@@ -18,11 +18,10 @@ fun main() {
     println()
     println("Создан пользователь с id-${first.id} логином-${first.login} паролем-${first.password} и эл.почтой-${first.email}")
 
-
+}
     class User(
         val login: String,
         val password: String,
         val email: String,
         val id: Int,
     )
-}

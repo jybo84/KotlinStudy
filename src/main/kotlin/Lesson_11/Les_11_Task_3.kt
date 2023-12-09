@@ -16,23 +16,34 @@ package Lesson_11
  */
 
 fun main() {
+    val  m1= Members("Max","Разговаривает")
+    val  m2= Members("Ivan","Микрофон выключен")
+    val  m3= Members("Sveta","Пользователь заглушен")
+
     val room_1 = ChatRoom(
         cover = "it",
         title = "любителей Kotlin",
-        listUser = mapOf("Max" to "разговаривает", "Петя" to "микрофон выключен", "Саша" to "Пользователь заглушен")
+        listUser = listOf(m1, m2, m3)
+
     )
     println()
     room_1.roomInfo()
 
-    class ChatRoom(
+}
 
-        val cover: String,
-        val title: String,
-        val listUser: Map<String, String>,
-    ) {
-        fun roomInfo() {
-            println("В форуме $cover, в комнате $title состоят участники $listUser  ")
-        }
+class ChatRoom(
+
+    val cover: String,
+    val title: String,
+    val listUser: List<Members>,
+) {
+    fun roomInfo() {
+        println("В форуме $cover, в комнате $title состоят участники ${listUser}")
     }
+}
 
+class Members(
+    val name: String,
+    val status: String,
+) {
 }

@@ -26,7 +26,7 @@ fun main() {
     println("Меню бургеров")
     categoryOfMenu.burgerShow()
     val ingridients =
-        Ingridients(mapOf("творого/гр" to 350, "яйцо/шт" to 2, "мука/ст.ложки" to 6, "сахар/т.ложки" to 2))
+        Ingridient(mapOf("творого/гр" to 350, "яйцо/шт" to 2, "мука/ст.ложки" to 6, "сахар/т.ложки" to 2))
     println("Ингридиенты для приготовления")
     ingridients.ingridientsShow()
     println("Рецепт приготовления пиццы")
@@ -39,29 +39,29 @@ fun main() {
         )
     )
     recipe.reciepOfPizzaShow()
+}
 
-    class Category(
-        val burgers: List<String>,
-        val pizza: List<String>,
-        val soup: List<String>,
-        val salad: List<String>,
-    ) {
-        fun burgerShow() = println(burgers)
-        fun pizzaShow() = println(pizza)
-        fun soupShow() = println(soup)
-        fun saladShow() = println(salad)
-    }
+class Category(
+    val burgers: List<String>,
+    val pizza: List<String>,
+    val soup: List<String>,
+    val salad: List<String>,
+) {
+    fun burgerShow() = println(burgers)
+    fun pizzaShow() = println(pizza)
+    fun soupShow() = println(soup)
+    fun saladShow() = println(salad)
+}
 
-    class Ingridients(
-        val ingridients: Map<String, Int>
-    ) {
-        fun ingridientsShow() = println(ingridients)
+class Ingridient(
+    val ingridient: Map<String, Int>
+) {
+    fun ingridientsShow() = println(ingridient)
 
-    }
+}
 
-    class Recipe(
-        val reciepOfPizza: Map<Int, String>
-    ) {
-        fun reciepOfPizzaShow() = println(reciepOfPizza)
-    }
+class Recipe(
+    val reciepOfPizza: Map<Int, String>
+) {
+    fun reciepOfPizzaShow() = println(reciepOfPizza)
 }

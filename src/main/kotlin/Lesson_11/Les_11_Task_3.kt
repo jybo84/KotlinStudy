@@ -16,9 +16,9 @@ package Lesson_11
  */
 
 fun main() {
-    val  m1= Members("Max","Разговаривает")
-    val  m2= Members("Ivan","Микрофон выключен")
-    val  m3= Members("Sveta","Пользователь заглушен")
+    val m1 = Members("Max", "Разговаривает")
+    val m2 = Members("Ivan", "Микрофон выключен")
+    val m3 = Members("Sveta", "Пользователь заглушен")
 
     val room_1 = ChatRoom(
         cover = "it",
@@ -36,7 +36,7 @@ class ChatRoom(
     val title: String,
     val listUser: List<Members>,
 
-) {
+    ) {
     fun roomInfo() {
         println("В форуме $cover, в комнате $title состоят участники: ${listUser.joinToString()}")
     }

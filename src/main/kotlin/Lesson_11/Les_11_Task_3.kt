@@ -38,11 +38,11 @@ class ChatRoom(
 
     ) {
     fun roomInfo() {
-        println("В форуме $cover, в комнате $title состоят участники: ${listUser.joinToString()}")
+        println("В форуме $cover, в комнате $title состоят участники: ${listUser.joinToString()}.")
     }
 }
 
-data class Members(
+class Members(
     val name: String,
     val status: String,
 ) {

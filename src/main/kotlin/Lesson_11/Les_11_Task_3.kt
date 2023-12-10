@@ -20,14 +20,14 @@ fun main() {
     val m2 = Members("Ivan", "Микрофон выключен")
     val m3 = Members("Sveta", "Пользователь заглушен")
 
-    val room_1 = ChatRoom(
+    val room1 = ChatRoom(
         cover = "it",
         title = "любителей Kotlin",
         listUser = listOf(m1, m2, m3)
 
     )
     println()
-    room_1.roomInfo()
+    room1.roomInfo()
 }
 
 class ChatRoom(

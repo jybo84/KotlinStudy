@@ -16,15 +16,14 @@ package Lesson_11
  */
 
 fun main() {
-    val m1 = Members("Max", "Разговаривает")
-    val m2 = Members("Ivan", "Микрофон выключен")
-    val m3 = Members("Sveta", "Пользователь заглушен")
+    val m1 = Member("Max", "Разговаривает")
+    val m2 = Member("Ivan", "Микрофон выключен")
+    val m3 = Member("Sveta", "Пользователь заглушен")
 
     val room1 = ChatRoom(
         cover = "it",
         title = "любителей Kotlin",
         listUser = listOf(m1, m2, m3)
-
     )
     println()
     room1.roomInfo()
@@ -34,7 +33,7 @@ class ChatRoom(
 
     val cover: String,
     val title: String,
-    val listUser: List<Members>,
+    val listUser: List<Member>,
 
     ) {
     fun roomInfo() {
@@ -42,7 +41,7 @@ class ChatRoom(
     }
 }
 
-class Members(
+class Member(
     val name: String,
     val status: String,
 ) {

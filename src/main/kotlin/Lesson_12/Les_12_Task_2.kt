@@ -10,9 +10,12 @@ Cоздай объект с произвольными данными и выв�
  */
 
 fun main() {
-    val toDay = Forecast(dayTemp = 15, nightTemp = 8, fallout = "Дождь")
-    println("Сегодня днем ${toDay.dayTemp}, ночью ${toDay.nightTemp}, осадки ${toDay.fallout}")
+    val wednesday = Forecast(dayTemp = 15, nightTemp = 8, fallout = "Дождь", dayOfWeek = "среда")
+    wednesday.printInfo()
 }
 
-class Forecast(val dayTemp: Int, val nightTemp: Int, var fallout: String) {
+class Forecast(val dayTemp: Int, val nightTemp: Int, var fallout: String, var dayOfWeek: String) {
+    fun printInfo(){
+        println("В $dayOfWeek днем ${dayTemp}, ночью ${nightTemp}, осадки ${fallout}")
+    }
 }

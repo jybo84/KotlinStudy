@@ -14,17 +14,19 @@ Cоздай объект с произвольными данными и выв�
 
 val TEMP_KELVIN = 273
 fun main() {
-    val toDay = Forecast()
-    println("Сегодня днем ${toDay.dayTemp}, ночью ${toDay.nightTemp}, осадки ${toDay.fallout}")
+    val thursday = Forecast(283, 273, "ожидается дождь", "четверг")
+    thursday.printInfo()
+
 }
 
-class Forecast() {
-    var dayTemp = 283
-    var nightTemp = 273
-    var fallout = "Дождь"
+class Forecast(var dayTempKelvin: Int, var nightTempKelvin: Int, var fallout: String, var dayOfWeek: String) {
 
     init {
-        dayTemp -= TEMP_KELVIN
-        nightTemp -= TEMP_KELVIN
+        dayTempKelvin -= TEMP_KELVIN
+        nightTempKelvin -= TEMP_KELVIN
+    }
+
+    fun printInfo() {
+        println("В $dayOfWeek днем- $dayTempKelvin, ночью- $nightTempKelvin, осадки- ${fallout}")
     }
 }

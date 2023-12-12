@@ -10,15 +10,18 @@ package Lesson_13
  */
 
 fun main() {
-    val book = TelephoneBook()
+    val book = TelephoneBook("Max", 9241234567, null)
     println(book)
 }
 
-class TelephoneBook() {
-    val name: String = "Max"
-    val number: Long = 89241234567
-    val company: String? = null
+class TelephoneBook(val name: String, val number: Long, val company: String?, ) {
+
     override fun toString(): String {
-        return (" контакт $name номер телефона $number работает $company")
+        return """
+            КОНТАКТ
+            имя: $name
+            телефон: $number
+            работает: $company
+        """.trimIndent()
     }
 }

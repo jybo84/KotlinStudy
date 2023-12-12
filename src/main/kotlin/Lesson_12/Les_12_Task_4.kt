@@ -8,17 +8,19 @@ package Lesson_12
 
 val TEMP_KELVIN = 273
 fun main() {
-    val toDay = Forecast()
+    val friday = Forecast(283, 273, "не ожидаются", "пятница")
 }
 
-class Forecast() {
-    var dayTemp = 283
-    var nightTemp = 273
-    var fallout = "Дождь"
+class Forecast(var dayTempKelvin: Int, var nightTempKelvin: Int, var fallout: String, var dayOfWeek: String) {
+
+    fun printInfo() {
+        println("В $dayOfWeek днем $dayTempKelvin, ночью $nightTempKelvin, осадки $fallout")
+    }
 
     init {
-        dayTemp -= TEMP_KELVIN
-        nightTemp -= TEMP_KELVIN
-        println("Сегодня днем ${dayTemp}, ночью ${nightTemp}, осадки ${fallout}")
+        dayTempKelvin -= TEMP_KELVIN
+        nightTempKelvin -= TEMP_KELVIN
+        printInfo()
+
     }
 }

@@ -24,17 +24,6 @@ fun main() {
 
 data class TelephoneContact(val name: String, val number: Long, val company: String?) {
 
-    fun bookInfo() {
-        println(
-            """
-            Имя: $name
-            Номер: $number
-            Компания: ${company ?: "не указано"}
-            ___________________________________
-        """.trimIndent()
-        )
-    }
-
     fun companyInfo() {
         println("Компания: ${company ?: "не указано"}")
     }

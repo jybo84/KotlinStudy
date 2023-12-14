@@ -22,7 +22,11 @@ fun main() {
     listContact.forEach { el -> el.companyInfo() }
 }
 
-data class TelephoneContact(val name: String, val number: Long, val company: String?) {
+data class TelephoneContact(
+    val name: String,
+    val number: Long,
+    val company: String?,
+) {
 
     fun companyInfo() {
         println("Компания: ${company ?: "не указано"}")

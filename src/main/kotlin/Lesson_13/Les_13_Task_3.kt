@@ -12,12 +12,13 @@ package Lesson_13
  */
 
 fun main() {
-    val contact1 = TelephoneContact("Max", 89241234511, "Яндекс")
-    val contact2 = TelephoneContact("Ivan", 89241234522, "Яндекс")
-    val contact3 = TelephoneContact("Sveta", 89241234533, "null")
-    val contact4 = TelephoneContact("Oleg", 89241234544, null)
-    val contact5 = TelephoneContact("Denis", 89241234555, null)
-    val listContact = listOf(contact1, contact2, contact3, contact4, contact5)
+    val listContact = mutableListOf(
+        TelephoneContact("Max", 89241234511, "Яндекс"),
+        TelephoneContact("Ivan", 89241234522, "Яндекс"),
+        TelephoneContact("Sveta", 89241234533, "null"),
+        TelephoneContact("Oleg", 89241234544),
+        TelephoneContact("Denis", 89241234555),
+    )
 
     listContact.forEach { el -> el.companyInfo() }
 }
@@ -25,7 +26,7 @@ fun main() {
 data class TelephoneContact(
     val name: String,
     val number: Long,
-    val company: String?,
+    val company: String? = null,
 ) {
 
     fun companyInfo() {

@@ -14,42 +14,8 @@ package Lesson_13
  */
 
 fun main() {
-    var listContact = mutableListOf<TelephoneBasa>()
-    val www = addNumber(listContact)
-
-    showList(www)
-    println()
-
-}
-
-fun addNumber(list: List<Any>): List<Any> {
-    val ccc = mutableListOf<Any>()
-    while (true) {
-
-        println("введите имя")
-        val name = readlnOrNull().toString()
-
-            println("Введите номер телефона")
-            val number: Long? = readln().toLongOrNull()
-        while (number != null) {
-            if (number == null) {
-                println("Вы не ввели номер")
-            }
-        }
-
-        println("Веведите компанию. ( Данныый пункт не является обязательным)")
-        val company = readlnOrNull()
-
-        val contact = TelephoneBasa(name, number, company)
-
-        ccc.add(contact)
-
-        println("Добавляем новый контакт (если нет завершите операцию вызовом \"НЕТ\" )")
-        val answer: String? = readlnOrNull()
-        if (answer.equals("нет", ignoreCase = true))
-            break
-    }
-    return ccc
+    val total = mutableListOf<Any>()
+    showList(addCont(total))
 }
 
 fun showList(list: List<Any>) {
@@ -59,16 +25,55 @@ fun showList(list: List<Any>) {
 data class TelephoneBasa(
     var name: String?,
     var number: Long?,
-    var company: String? = null,
+    var company: String?,
 ) {
 
     override fun toString(): String {
         return """
                 КАРТОЧКА КОНТАКТА
-            Имя: $name
-            Номер: $number
-            Компания: ${company ?: "нет инфы"}
+            Имя: ${name}
+            Номер: ${number ?: ""}
+            Компания: ${company}
             ___________________________________
         """.trimIndent()
     }
+}
+
+fun getName(): String? {
+    println("Введите имя")
+    val name: String? = readlnOrNull()
+    if (name != null) {
+        if (name.isEmpty()) return null
+    }
+    return name
+}
+
+fun getNumber(): Long? {
+    println("Введите номер")
+    val num = readln().toLongOrNull()
+    if (num == null)
+        println("Вы не ввели данные")
+    return num
+}
+
+fun getCompany(): String? {
+    println("Введите компанию (ПОЛЕ НЕ ЯВЛЯЕТСЯ ОБЯЗАТЕЛЬНЫМ)")
+    val company: String? = readlnOrNull()
+    if (company != null) {
+        if (company.isEmpty()) return null
+    }
+    return company
+}
+
+fun addCont(list: List<Any>): List<Any> {
+    var list = mutableListOf<Any>()
+
+    do {
+        val contact = TelephoneBasa(getName(), getNumber(), getCompany())
+        list.add(contact)
+        println("Еще будите добавлять контакт или СТОП")
+        val answer = readln()
+    } while (!answer.equals("стоп", ignoreCase = true))
+
+    return list
 }

@@ -28,17 +28,24 @@ fun addNumber(list: List<Any>): List<Any> {
 
         println("введите имя")
         val name = readlnOrNull().toString()
-        println("Введите номер телефона")
-        val number: Long? = readln().toLongOrNull()
+
+            println("Введите номер телефона")
+            val number: Long? = readln().toLongOrNull()
+        while (number != null) {
+            if (number == null) {
+                println("Вы не ввели номер")
+            }
+        }
+
         println("Веведите компанию. ( Данныый пункт не является обязательным)")
-        val company = readlnOrNull().toString()
+        val company = readlnOrNull()
 
         val contact = TelephoneBasa(name, number, company)
 
         ccc.add(contact)
 
         println("Добавляем новый контакт (если нет завершите операцию вызовом \"НЕТ\" )")
-        val answer = readln()
+        val answer: String? = readlnOrNull()
         if (answer.equals("нет", ignoreCase = true))
             break
     }
@@ -52,7 +59,7 @@ fun showList(list: List<Any>) {
 data class TelephoneBasa(
     var name: String?,
     var number: Long?,
-    var company: String?,
+    var company: String? = null,
 ) {
 
     override fun toString(): String {

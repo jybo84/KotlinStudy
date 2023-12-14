@@ -14,7 +14,11 @@ fun main() {
     println(book)
 }
 
-class TelephoneBook(val name: String, val number: Long, val company: String?, ) {
+class TelephoneBook(
+    val name: String,
+    val number: Long,
+    val company: String?,
+) {
 
     override fun toString(): String {
         return """

@@ -18,7 +18,11 @@ fun main() {
     book.bookInfo()
 }
 
-class TelephoneBook(val name: String, val number: Long, val company: String? = null) {
+class TelephoneBook(
+    val name: String,
+    val number: Long,
+    val company: String? = null
+) {
 
     fun bookInfo() {
         println(

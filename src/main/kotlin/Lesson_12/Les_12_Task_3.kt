@@ -16,14 +16,18 @@ val TEMP_KELVIN = 273
 fun main() {
     val thursday = Forecast(283, 273, "ожидается дождь", "четверг")
     thursday.printInfo()
-
 }
 
-class Forecast(var dayTempKelvin: Int, var nightTempKelvin: Int, var fallout: String, var dayOfWeek: String) {
+class Forecast(dayTempKelvin: Int, nightTempKelvin: Int, fallout: String, dayOfWeek: String) {
+
+    var dayTempKelvin: Int = 283
+    var nightTempKelvin: Int = 273
+    val fallout: String = "ожидается дождь"
+    val dayOfWeek: String = "четверг"
 
     init {
-        dayTempKelvin -= TEMP_KELVIN
-        nightTempKelvin -= TEMP_KELVIN
+        this.dayTempKelvin -= TEMP_KELVIN
+        this.nightTempKelvin -= TEMP_KELVIN
     }
 
     fun printInfo() {

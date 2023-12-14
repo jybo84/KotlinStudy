@@ -15,18 +15,25 @@ package Lesson_12
  */
 
 fun main() {
-    val toDay = Weather()
-    println("Сегодня днём ${toDay.dayTemp} предстоящей ночью ${toDay.nightTemp} осадки ${toDay.fallout}")
+    val monday = Weather()
+    monday.printInfo()
 
-    val tomorrow = Weather()
-    tomorrow.dayTemp = 5
-    tomorrow.nightTemp = 0
-    tomorrow.fallout = "ожидаются осадки"
-    println("Завтра днём ${tomorrow.dayTemp} завтра ночью ${tomorrow.nightTemp} осадки ${tomorrow.fallout}")
+    val tuesday = Weather()
+    tuesday.dayOfWeek = "вторник"
+    tuesday.dayTemp = 5
+    tuesday.nightTemp = 0
+    tuesday.fallout = "ожидаются"
+
+    tuesday.printInfo()
 }
 
 class Weather() {
+    var dayOfWeek = "понедельник"
     var dayTemp = -10
     var nightTemp = -20
     var fallout = "не ожидаются"
+
+    fun printInfo() {
+        println("В $dayOfWeek днём $dayTemp $dayOfWeek ночью $nightTemp осадки $fallout")
+    }
 }

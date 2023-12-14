@@ -15,7 +15,7 @@ package Lesson_13
 
 fun main() {
     val total = mutableListOf<Any>()
-    showList(addCont(total))
+    showList(addContactInTelephoneBook(total))
 }
 
 fun showList(list: List<Any>) {
@@ -32,7 +32,7 @@ data class TelephoneBasa(
         return """
                 КАРТОЧКА КОНТАКТА
             Имя: ${name}
-            Номер: ${number ?: ""}
+            Номер: ${number }
             Компания: ${company}
             ___________________________________
         """.trimIndent()
@@ -57,6 +57,7 @@ fun getNumber(): Long? {
 }
 
 fun getCompany(): String? {
+    Thread.sleep(1000)
     println("Введите компанию (ПОЛЕ НЕ ЯВЛЯЕТСЯ ОБЯЗАТЕЛЬНЫМ)")
     val company: String? = readlnOrNull()
     if (company != null) {
@@ -65,7 +66,7 @@ fun getCompany(): String? {
     return company
 }
 
-fun addCont(list: List<Any>): List<Any> {
+fun addContactInTelephoneBook(list: List<Any>): List<Any> {
     var list = mutableListOf<Any>()
 
     do {

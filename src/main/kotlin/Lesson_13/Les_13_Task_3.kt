@@ -11,6 +11,7 @@ package Lesson_13
 - выведи список всех существующих компаний, которые есть в телефонной книге.
  */
 
+
 fun main() {
     val listContact = mutableListOf(
         TelephoneContact("Max", 89241234511, "Яндекс"),

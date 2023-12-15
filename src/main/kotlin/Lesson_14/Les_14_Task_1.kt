@@ -1,9 +1,6 @@
 package Lesson_14
 
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/KS-14-1
 /*
 Задача 1 к Уроку 14
 
@@ -54,9 +51,4 @@ class ShipIceBreaker(speed: Int, capacity: Int) : Ship(speed, capacity) {
     override fun haveSkill() {
         println("Я хожу по воде всего $speed км/ч, могу перевезти всего $capacity зато я умею ломать лед")
     }
-<<<<<<< HEAD
 }
-=======
-}
-
->>>>>>> origin/KS-14-1

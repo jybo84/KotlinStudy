@@ -12,22 +12,22 @@ package Lesson_12
 Cоздай объект с произвольными данными и выведи в консоль методом созданного класса.
  */
 
-val TEMP_KELVIN = 273
+val TEMP_KELVIN3 = 273
 fun main() {
-    val thursday = Forecast(283, 273, "ожидается дождь", "четверг")
+    val thursday = Forecast3(283, 273, "ожидается дождь", "четверг")
     thursday.printInfo()
 }
 
-class Forecast(dayTempKelvin: Int, nightTempKelvin: Int, fallout: String, dayOfWeek: String) {
+class Forecast3( _dayTempKelvin: Int, _nightTempKelvin: Int, _fallout: String, _dayOfWeek: String) {
 
-    var dayTempKelvin: Int = 283
-    var nightTempKelvin: Int = 273
-    val fallout: String = "ожидается дождь"
-    val dayOfWeek: String = "четверг"
+    var dayTempKelvin: Int = _dayTempKelvin
+    var nightTempKelvin: Int = _nightTempKelvin
+    val fallout: String = _fallout
+    val dayOfWeek: String = _dayOfWeek
 
     init {
-        this.dayTempKelvin -= TEMP_KELVIN
-        this.nightTempKelvin -= TEMP_KELVIN
+        dayTempKelvin -= TEMP_KELVIN3
+        nightTempKelvin -= TEMP_KELVIN3
     }
 
     fun printInfo() {

@@ -15,7 +15,7 @@ package Lesson_13
 
 fun main() {
     val total = mutableListOf<Any>()
-    showList(addContactInTelephoneBook(total))
+    showList(addContactInTelephoneBook())
 }
 
 fun showList(list: List<Any>) {
@@ -24,7 +24,7 @@ fun showList(list: List<Any>) {
 
 data class TelephoneBasa(
     var name: String?,
-    var number: Long?,
+    var number: Unit,
     var company: String?,
 ) {
 
@@ -32,7 +32,7 @@ data class TelephoneBasa(
         return """
                 КАРТОЧКА КОНТАКТА
             Имя: ${name}
-            Номер: ${number }
+            Номер: ${number}
             Компания: ${company}
             ___________________________________
         """.trimIndent()
@@ -66,11 +66,18 @@ fun getCompany(): String? {
     return company
 }
 
-fun addContactInTelephoneBook(list: List<Any>): List<Any> {
-    var list = mutableListOf<Any>()
+fun checkGetNumber() {
+    val check = getNumber()
+    if(check == null)
+        return
+    else
+        check
+}
 
+fun addContactInTelephoneBook(): List<Any> {
+    val list = mutableListOf<Any>()
     do {
-        val contact = TelephoneBasa(getName(), getNumber(), getCompany())
+        val contact = TelephoneBasa(getName(), checkGetNumber(), getCompany())
         list.add(contact)
         println("Еще будите добавлять контакт или СТОП")
         val answer = readln()

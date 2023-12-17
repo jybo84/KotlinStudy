@@ -36,13 +36,13 @@ open class CraftLiner(
         println("Я имею возможность грузиться выдвигая горизонтальный трап со шкафута")
     }
 
-    open fun specifications() {
+    open fun getSpecification() {
         println("Я $typeOfCraft моя скорость $speed, могу перевезти $capacity людей")
 
     }
 
     fun infoCraft() {
-        specifications()
+        getSpecification()
         haveSkill()
         loadCraft()
         println("_______________________")
@@ -58,7 +58,7 @@ class CraftCargo(speed: Int, capacity: Int, typeOfCraft: String) : CraftLiner(sp
         println("Я имею возможность грузиться активируя погрузочный кран")
     }
 
-    override fun specifications() {
+    override fun getSpecification() {
         println("Я $typeOfCraft моя скорость $speed, могу перевезти $capacity тонн груза")
     }
 }
@@ -72,7 +72,7 @@ class CraftIceBreaker(speed: Int, capacity: Int, typeOfCraft: String) : CraftLin
         println("Я имею возможность грузиться открывая ворота со стороны кормы")
     }
 
-    override fun specifications() {
+    override fun getSpecification() {
         println("Я $typeOfCraft моя скорость $speed, могу перевезти только команду корабля из $capacity человек ")
     }
 }

@@ -1,5 +1,6 @@
 package Lesson_14
 
+
 /*
 Задача 1 к Уроку 14
 
@@ -12,34 +13,41 @@ package Lesson_14
  */
 
 fun main() {
-    val ship1 = LinerShip(100, 100)
+    val ship1 = ShipLiner(100, 100)
     ship1.haveSkill()
-    println()
+    println("___________________________________")
 
-    val ship2 = CargoShip(50, 50)
+    val ship2 = ShipCargo(50, 50)
     ship2.haveSkill()
-    println()
+    println("___________________________________")
 
-    val ship3 = IceBreakerShip(25, 15)
+    val ship3 = ShipIceBreaker(30, 15)
     ship3.haveSkill()
+    println("___________________________________")
 }
 
-open class LinerShip(
-    val speed: Int,
-    val capacity: Int,
+open class Ship(
+    open val speed: Int,
+    open val capacity: Int,
 ) {
     open fun haveSkill() {
+        println("Я умею ходить по воде со скоростью $speed и перевезти $capacity")
+    }
+}
+
+class ShipLiner(speed: Int, capacity: Int) : Ship(speed, capacity) {
+    override fun haveSkill() {
         println("Я умею ходить по воде со скоростью $speed км/ч и перевезти $capacity человек")
     }
 }
 
-class CargoShip(speed: Int, capacity: Int) : LinerShip(speed, capacity) {
+class ShipCargo(speed: Int, capacity: Int) : Ship(speed, capacity) {
     override fun haveSkill() {
         println("Я умею ходить по воде со скоростью $speed км/ч и перевезти $capacity тонн груза")
     }
 }
 
-class IceBreakerShip(speed: Int, capacity: Int) : LinerShip(speed, capacity) {
+class ShipIceBreaker(speed: Int, capacity: Int) : Ship(speed, capacity) {
     override fun haveSkill() {
         println("Я хожу по воде всего $speed км/ч, могу перевезти всего $capacity зато я умею ломать лед")
     }

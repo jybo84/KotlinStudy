@@ -54,9 +54,3 @@ fun main() {
 }
 
 fun getRandomNumber(): Int = (1..6).random()
-
-
-
-
-
-

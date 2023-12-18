@@ -21,21 +21,24 @@ fun main() {
     admin.canDeleteMessage()
 }
 
-abstract class User(): SimplePossibility {
+abstract class User() : SimplePossibility {
 
 }
 
-open class SimpleUser(): User(){
+open class SimpleUser() : User() {
 
 }
-class Administrator(): User(), AdministratorPossibility{
+
+class Administrator() : User(), AdministratorPossibility {
 
 }
-interface SimplePossibility{
-    fun write(){
+
+interface SimplePossibility {
+    fun write() {
         println("могу писать в форуме")
     }
-    fun read(){
+
+    fun read() {
         println("могу читать в форуме")
     }
 }

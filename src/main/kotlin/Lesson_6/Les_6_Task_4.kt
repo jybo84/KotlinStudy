@@ -10,23 +10,6 @@ package Lesson_6
  – после истечения попыток выводится сообщение “Было загадано число N”.
  */
 
-//fun main() {
-//    val secretNum = 5
-//    var attempt = 5
-//    println("У вас $attempt попыток")
-//
-//    do {
-//        val userNum = readln().toInt()
-//        attempt--
-//        while (attempt <= 0) {            //  в данном случае получился цикл в цикле, но здесь можно if поставить
-//            println("Попытки закончились. Было число $secretNum")
-//            return
-//        }
-//        println("Неверно. Осталось $attempt попытки.")
-//    } while (userNum != secretNum)
-//    println("Это была великолепная игра")
-//}
-
 fun main() {
     val secretNum = 5
     var attempt = 5

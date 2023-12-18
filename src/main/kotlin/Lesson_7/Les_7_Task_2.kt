@@ -9,19 +9,21 @@ package Lesson_7
 Если код введён неверно – программа вышлет новый (отобразит в консоли) и снова будет запрашивать его ввод для попытки
 авторизации. Если код введен верно – программа отображает приветствие и завершает работу.
  */
+
 fun main() {
-    do {
-        val secretCod = (1000..9999).random()
-        println("Ваш код авторизации: $secretCod")
+    val secretCod = (1000..9999).random()
+    println("Ваш код авторизации: $secretCod")
 
-        println("Для авторизации введите код который мы Вам направили ранее")
+    println("Для авторизации введите код который мы Вам направили ранее")
 
+    while (true) {
         val userCod = readln().toInt()
         if (userCod != secretCod) {
             println("Ошибка. Вы ввели неверный код")
-            Thread.sleep(2000)
+            Thread.sleep(1000)
             println("Попробуйте снова")
-        }
-    } while (userCod != secretCod)
+        } else
+            break
+    }
     println("Приветсвуем Вас. Вы вошли в систему")
 }

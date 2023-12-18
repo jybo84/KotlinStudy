@@ -14,11 +14,11 @@ package Lesson_13
  */
 
 fun main() {
-    val book = TelephoneBook2("Max", 89241234567)
+    val book = TelephoneBook22("Max", 89241234567)
     book.bookInfo()
 }
 
-class TelephoneBook2(
+class TelephoneBook22(
     val name: String,
     val number: Long,
     val company: String? = null

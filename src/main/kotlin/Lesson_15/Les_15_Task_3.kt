@@ -11,41 +11,44 @@ package Lesson_15
 
 fun main() {
     val user = SimpleUser()
-    user.write()
-    user.read()
+    user.write("Я могу писать сообщения")
+    user.read("Я могу читать сообщения")
     println()
 
     val admin = Administrator()
-    admin.write()
-    admin.read()
-    admin.canDeleteMessage()
+    admin.deleteUser()
+    admin.deleteMessage()
 }
 
-abstract class User() : SimplePossibility {
-
-}
-
-open class SimpleUser() : User() {
+abstract class User : SimplePossibility {
 
 }
 
-class Administrator() : User(), AdministratorPossibility {
+open class SimpleUser : User() {
+
+}
+
+class Administrator : User(), AdministratorPossibility {
 
 }
 
 interface SimplePossibility {
-    fun write() {
-        println("могу писать в форуме")
+    fun write(message: String) {
+        println(message)
     }
 
-    fun read() {
-        println("могу читать в форуме")
+    fun read(text: String) {
+        println(text)
     }
 }
 
 interface AdministratorPossibility {
-    fun canDeleteMessage() {
-        println("Я могу удалять сообщения других пользователей")
+    fun deleteUser() {
+        println("Я могу удалить пользователей которые постоянно шлют спам")
+    }
+
+    fun deleteMessage() {
+        println("Я слежу за лексикой и при необходимости удаляю сообщения пользователей")
     }
 }
 

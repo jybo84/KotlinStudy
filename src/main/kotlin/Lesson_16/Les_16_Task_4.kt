@@ -13,11 +13,13 @@ package Lesson_16
 fun main() {
     val order = Shop(123)
     println(order)
-    changeStatus("Готово", order)
+    val message = messageAboutChangeStatus(true)
+    order.changeStatus(message, order)
     println(order)
+
 }
 
-class Shop(private val numberOfOrder: Int, private var status: Boolean = false) {
+private class Shop(private val numberOfOrder: Int, private var status: Boolean = false) {
 
     fun setStatus(value: Boolean) {
         status = value
@@ -26,10 +28,15 @@ class Shop(private val numberOfOrder: Int, private var status: Boolean = false) 
     override fun toString(): String {
         return "Заказ с номером $numberOfOrder, в статусе ${if (!status) "еще комплектуется" else "готов можно забирать"}"
     }
+
+    fun changeStatus(status: Boolean, order: Shop): Shop {
+        setStatus(status)
+        return order
+    }
 }
 
-private fun changeStatus(message: String, shop: Shop): Shop {
-    if (message.equals("Готово", ignoreCase = true))
-        shop.setStatus(true)
-    return shop
+    fun messageAboutChangeStatus(status: Boolean): Boolean {
+    return status
 }
+
+

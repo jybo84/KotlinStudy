@@ -13,22 +13,23 @@ package Lesson_16
 fun main() {
     val order = Shop(123)
     println(order)
-    order.changeStatus(order.sandMessage("Готово"))
+    changeStatus("Готово", order)
     println(order)
 }
 
-class Shop(private val numberOfOrder: Int, var status: Boolean = false) {
+class Shop(private val numberOfOrder: Int, private var status: Boolean = false) {
 
-    fun changeStatus(message: String) {
-        if (message.equals("Готово", ignoreCase = true))
-            status = true
-    }
-
-    fun sandMessage(text: String): String {
-        return text
+    fun setStatus(value: Boolean) {
+        status = value
     }
 
     override fun toString(): String {
         return "Заказ с номером $numberOfOrder, в статусе ${if (!status) "еще комплектуется" else "готов можно забирать"}"
     }
+}
+
+private fun changeStatus(message: String, shop: Shop): Shop {
+    if (message.equals("Готово", ignoreCase = true))
+        shop.setStatus(true)
+    return shop
 }

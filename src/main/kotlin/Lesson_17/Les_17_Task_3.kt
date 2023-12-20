@@ -31,7 +31,7 @@ class Folder() {
         get() = if (isSecret) name else field
 
     var quantityFile: Int = 0
-        get() = if (isSecret == false) field else quantityFile
+        get() = if (!isSecret) field else quantityFile
 
     override fun toString(): String {
         return "Папка $name, количество файлов $quantityFile"

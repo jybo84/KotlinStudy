@@ -12,7 +12,7 @@ package Lesson_16
  */
 
 fun main() {
-    val user = User()
+    val user = User("123", "max")
     println("Введите пароль")
     val userPas = readln()
     println("Введите логин")
@@ -20,10 +20,8 @@ fun main() {
     user.checkPassword(userPas, userLogin)
 }
 
-class User() {
+class User(private val password: String, private val login: String) {
 
-    private val password = "123"
-    private val login = "Max"
     fun getPassword() = password
     fun getLogin() = login
 

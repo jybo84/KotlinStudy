@@ -16,10 +16,12 @@ fun main() {
     val message = messageAboutChangeStatus(true)
     order.changeStatus(message, order)
     println(order)
-
 }
 
-private class Shop(private val numberOfOrder: Int, private var status: Boolean = false) {
+private class Shop(
+    private val numberOfOrder: Int,
+    private var status: Boolean = false
+) {
 
     fun setStatus(value: Boolean) {
         status = value
@@ -35,7 +37,7 @@ private class Shop(private val numberOfOrder: Int, private var status: Boolean =
     }
 }
 
-    fun messageAboutChangeStatus(status: Boolean): Boolean {
+fun messageAboutChangeStatus(status: Boolean): Boolean {
     return status
 }
 

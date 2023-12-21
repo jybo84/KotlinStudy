@@ -18,20 +18,20 @@ fun main() {
     println(folder)
 
     val folder1 = Folder()
-    folder.name = "Kotlin"
-    folder.quantityFile = 100
-    folder.isSecret = true
+    folder1.name = "Kotlin"
+    folder1.quantityFile = 100
+    folder1.isSecret = true
     println(folder1)
 }
 
 class Folder() {
     var isSecret: Boolean = false
 
-    var name: String = "скрытая"
-        get() = if (isSecret) name else field
+    var name: String = ""
+        get() = if (!isSecret) field else "секретная"
 
     var quantityFile: Int = 0
-        get() = if (!isSecret) field else quantityFile
+        get() = if (!isSecret)  field else 0
 
     override fun toString(): String {
         return "Папка $name, количество файлов $quantityFile"

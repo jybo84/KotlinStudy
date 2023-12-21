@@ -21,7 +21,6 @@ fun main() {
 
 class Boat() {
     var name = "Чёрная жемчужина"
-        //get() = if (field != "Чёрная жемчужина") name else field
         set(value) {
             field = value
             if (value.equals("Чёрная жемчужина", ignoreCase = true)) value

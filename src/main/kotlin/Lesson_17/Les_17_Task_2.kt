@@ -21,10 +21,12 @@ fun main() {
 
 class Boat() {
     var name = "Чёрная жемчужина"
+        //get() = if (field != "Чёрная жемчужина") name else field
         set(value) {
             field = value
-            if (value.equals("Чёрная жкмчужина", ignoreCase = true))
-                field = "ВНИМАНИЕ (плохая примета менять имя)" else value
+            if (value.equals("Чёрная жемчужина", ignoreCase = true)) value
+            else
+                field = "ВНИМАНИЕ (плохая примета менять имя)"
         }
 
     val speed = 100

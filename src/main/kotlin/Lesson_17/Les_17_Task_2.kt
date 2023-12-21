@@ -20,8 +20,13 @@ fun main() {
 }
 
 class Boat() {
-    var name = "Неудержимый"
-        get() = if (field != "Неудержимый") "ВНИМАНИЕ (плохая примета менять имя)" else field
+    var name = "Чёрная жемчужина"
+        set(value) {
+            field = value
+            if (value.equals("Чёрная жкмчужина", ignoreCase = true))
+                field = "ВНИМАНИЕ (плохая примета менять имя)" else value
+        }
+
     val speed = 100
     val port = "Владивосток"
     override fun toString(): String {

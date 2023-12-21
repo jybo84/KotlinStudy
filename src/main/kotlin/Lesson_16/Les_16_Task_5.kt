@@ -11,22 +11,25 @@ package Lesson_16
  */
 
 fun main() {
-    val character = Character()
+    val character = Character("Джэк Воробей")
 
-    damage(character)
     character.characterInfo()
-    getWell(character)
+    character.getDamage(70)
     character.characterInfo()
-    damage(character)
-    character.characterInfo()
-    damage(character)
-    character.characterInfo()
+    character.getExtraHealth(10)
+    character.getDamage(70)
+    println()
+
+    val character1 = Character("Бражник")
+
+    character1.characterInfo()
+    character1.getDeath()
 }
 
 class Character(
-    private val name: String = "max",
+    private val name: String = "Задайте имя персонажу",
     private var health: Int = 100,
-    private var power: Int = 50,
+    private var power: Int = 50
 ) {
 
     fun getHealth() = health
@@ -39,32 +42,33 @@ class Character(
         power = newPower
     }
 
+    fun getDeath() {
+        power = 0
+        health = 0
+        println("персонаж умер")
+        println("ИГРА ЗАКОНЧИЛАСЬ")
+    }
+
+    fun getDamage(power: Int): Character {
+        println("Удар по $name")
+        val character = Character()
+        val totalHealth = getHealth() - power
+        setHealth(totalHealth)
+        if (totalHealth < 0)
+            getDeath()
+
+        return character
+    }
+
+    fun getExtraHealth(tablet: Int): Character {
+        val character = Character()
+        val totalHealth = getHealth() + tablet
+        setHealth(totalHealth)
+        println("${name} съел волшебную таблетку. Теперь ${getHealth()} здоровья")
+        return character
+    }
+
     fun characterInfo() {
         println("персонаж $name Осталось $health здоровья мощность $power")
     }
 }
-
-fun damage(character: Character): Character {
-    val totalHealth = character.getHealth() - character.getPower()
-    character.setHealth(totalHealth)
-    if (totalHealth > 0)
-        println("Осталось ${totalHealth} здоровья")
-    else {
-        character.setPower(0)
-        character.setHealth(0)
-        println("персонаж умер")
-        println("ИГРА ЗАКОНЧИЛАСЬ")
-    }
-    return character
-}
-
-fun getWell(character: Character): Character {
-    val tablet = 25
-    val totalHealth = character.getHealth() + tablet
-    character.setHealth(totalHealth)
-    println("Теперь ${totalHealth} здоровья")
-    return character
-}
-
-
-

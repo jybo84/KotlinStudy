@@ -20,7 +20,10 @@ fun main() {
     user.checkPassword(userPas, userLogin)
 }
 
-class User(private val password: String, private val login: String) {
+class User(
+    private val password: String,
+    private val login: String
+) {
 
     fun getPassword() = password
     fun getLogin() = login

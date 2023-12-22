@@ -16,14 +16,13 @@ fun main() {
     character.characterInfo()
     character.getDamage(70)
     character.characterInfo()
-    character.getExtraHealth(10)
-    character.getDamage(70)
-    println()
+    character.getExtraHealth(100)
 
     val character1 = Character("Бражник")
-
+    character1.getDamage(70)
     character1.characterInfo()
-    character1.getDeath()
+    character1.getDamage(70)
+
 }
 
 class Character(
@@ -37,35 +36,28 @@ class Character(
         health = newHealth
     }
 
-    fun getPower() = power
-    fun setPower(newPower: Int) {
-        power = newPower
-    }
-
-    fun getDeath() {
+    private fun deathCharacter() {
         power = 0
         health = 0
         println("персонаж умер")
         println("ИГРА ЗАКОНЧИЛАСЬ")
     }
 
-    fun getDamage(power: Int): Character {
+    fun getDamage(power: Int): Int {
         println("Удар по $name")
-        val character = Character()
         val totalHealth = getHealth() - power
         setHealth(totalHealth)
         if (totalHealth < 0)
-            getDeath()
+            deathCharacter()
 
-        return character
+        return totalHealth
     }
 
-    fun getExtraHealth(tablet: Int): Character {
-        val character = Character()
+    fun getExtraHealth(tablet: Int): Int {
         val totalHealth = getHealth() + tablet
         setHealth(totalHealth)
         println("${name} съел волшебную таблетку. Теперь ${getHealth()} здоровья")
-        return character
+        return totalHealth
     }
 
     fun characterInfo() {

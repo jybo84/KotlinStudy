@@ -24,7 +24,6 @@ class Boat() {
         set(value) {
             println("ВНИМАНИЕ (плохая примета менять имя)")
         }
-
     val speed = 100
     val port = "Владивосток"
     override fun toString(): String {

@@ -22,9 +22,8 @@ fun main() {
 class Boat() {
     var name = "Чёрная жемчужина"
         set(value) {
-            if (value.equals("Чёрная жемчужина", ignoreCase = true)) value
-            else
-                field = "ВНИМАНИЕ (плохая примета менять имя)"
+            println("ВНИМАНИЕ (плохая примета менять имя)")
+            field = value
         }
 
     val speed = 100

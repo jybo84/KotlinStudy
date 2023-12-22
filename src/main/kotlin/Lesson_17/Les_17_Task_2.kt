@@ -23,7 +23,6 @@ class Boat() {
     var name = "Чёрная жемчужина"
         set(value) {
             println("ВНИМАНИЕ (плохая примета менять имя)")
-            field = value
         }
 
     val speed = 100

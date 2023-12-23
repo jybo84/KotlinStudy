@@ -38,7 +38,6 @@ class Package(var count: Int = 0) {
             } else
                 field = "ТАМ ЖЕ"
         }
-
     override fun toString(): String {
         return "Посылка $numOrder находится в $place. Это $count пересылочная база"
     }

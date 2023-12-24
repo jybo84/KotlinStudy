@@ -33,15 +33,10 @@ class User() {
 
     var password = "123"
         get() {
-            var str = field.length
-            field = ""
-            while (str > 0) {
-                field = field + "*"
-                str--
-            }
+            "*".repeat(field.length)
             return field
         }
         set(value) {
-            field = "Вы не можете изменить пароль"
+            "Вы не можете изменить пароль"
         }
 }

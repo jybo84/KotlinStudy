@@ -13,5 +13,35 @@ package Lesson_17
  */
 
 fun main() {
+    val user = User()
+    println(user.login)
+    println(user.password)
+    println()
+    user.login = "MAXIM"
+    println(user.login)
+    user.password = "222"
+    println(user.password)
+}
 
+class User() {
+    var login = "max"
+        set(value) {
+            println("Логин успешно изменен")
+            field = value
+        }
+
+
+    var password = "123"
+        get() {
+            var str = field.length
+            field = ""
+            while (str > 0) {
+                field = field + "*"
+                str--
+            }
+            return field
+        }
+        set(value) {
+            field = "Вы не можете изменить пароль"
+        }
 }

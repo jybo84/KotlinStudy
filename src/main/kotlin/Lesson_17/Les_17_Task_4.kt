@@ -1,6 +1,6 @@
 package Lesson_17
-/*
 
+/*
 
 Задача 4 к Уроку 17
 
@@ -11,6 +11,7 @@ package Lesson_17
 Сымитировать прибытие посылки в новый пункт обработки, протестировать изменение счетчика.
 При реализации использовать сеттер.
  */
+
 
 fun main() {
 
@@ -37,7 +38,6 @@ class Package(var count: Int = 0) {
             } else
                 field = "ТАМ ЖЕ"
         }
-
     override fun toString(): String {
         return "Посылка $numOrder находится в $place. Это $count пересылочная база"
     }

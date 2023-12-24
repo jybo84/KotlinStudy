@@ -20,6 +20,7 @@ fun main() {
     val order1 = Order()
     order1.showInfo(222, listOf("комп", "монитор", "мышка"))
 
+
 }
 
 class Order() {
@@ -35,7 +36,7 @@ class Order() {
         numberOfOrder: Int,
         product: List<String>,
     ) {
-        println("Заказаны следующие товары: \n$product \nномер заказа ${numberOfOrder}")
+        println("Заказаны следующие товары: \n${product.joinToString(", ")} \nномер заказа $numberOfOrder")
     }
 }
 

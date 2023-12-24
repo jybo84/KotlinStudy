@@ -10,54 +10,53 @@ package Lesson_18
 
 fun main() {
 
-    val fox = Fox()
-    fox.eat("ягоды", "Алиса")
+    val fox = Fox("Алиса", "Ягоды")
+    fox.eat()
     println()
 
-    val dog = Dog()
-    fox.eat("кости", "Шарик")
+    val dog = Dog("Шарик", "Косточка")
+    fox.eat()
     println()
 
-    val cat = Cat()
-    cat.eat("рыбу", "Барсик")
-
+    val cat = Cat("Барсик", "рыба")
+    cat.eat()
 
 
 }
 
-abstract class Animal() {
+abstract class Animal(val name: String, val food: String) {
 
 
-    open fun eat(food: String, name: String){
+    open fun eat() {
         println("Я $name - ем")
     }
 
-     fun play(){
-         println("Я играю")
-     }
+    fun play() {
+        println("Я играю")
+    }
 
-     fun sleep(){
-      println("Я сплю")
+    fun sleep() {
+        println("Я сплю")
     }
 }
 
-class Fox(): Animal() {
+class Fox(name: String, food: String) : Animal(name, food) {
 
-    override fun eat(food: String, name: String){
+    override fun eat() {
         println("Я $name - ем $food")
     }
 }
 
-class Dog(): Animal() {
+class Dog(name: String, food: String) : Animal(name, food) {
 
-      override fun eat(food: String, name: String){
+    override fun eat() {
         println("Я $name - ем $food")
     }
 }
 
-class Cat(): Animal() {
+class Cat(name: String, food: String) : Animal(name, food) {
 
-    override fun eat(food: String, name: String){
+    override fun eat() {
         println("Я $name - ем $food")
     }
 }

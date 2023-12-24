@@ -34,7 +34,7 @@ abstract class Vehicle() : PossibilityTransportCargo, PossibilityTransportHuman 
 class PassengerCar(
     override val maxLoadCargo: Int = 0,
     override val maxLoadMen: Int = 3
-) : Vehicle(), PossibilityLoad, Moveble {
+) : Vehicle(), PossibilityLoad {
     override fun loadInCar() {
         println("Я могу в салон посадить $maxLoadMen человек")
     }
@@ -51,7 +51,7 @@ class PassengerCar(
 class CargoCar(
     override val maxLoadCargo: Int = 2,
     override val maxLoadMen: Int = 1
-) : Vehicle(), PossibilityLoad, Moveble {
+) : Vehicle(), PossibilityLoad {
     override fun loadInCar() {
         println("Я могу в кузов погрузить $maxLoadCargo тонн груза и $maxLoadMen человек")
     }
@@ -76,9 +76,8 @@ interface PossibilityTransportCargo {
 interface PossibilityLoad {
     fun loadInCar()
     fun unloadCar()
-}
-
-interface Moveble {
     fun move()
 }
+
+
 

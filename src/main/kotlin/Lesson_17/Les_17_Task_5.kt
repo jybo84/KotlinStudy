@@ -37,6 +37,6 @@ class User() {
             return field
         }
         set(value) {
-            "Вы не можете изменить пароль"
+            println("Вы не можете изменить пароль")
         }
 }

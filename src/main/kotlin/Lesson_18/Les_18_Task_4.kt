@@ -10,30 +10,28 @@ package Lesson_18
 
 fun main() {
 
-    val package1 = PackageRectangle()
-    println( package1.squareOfPackage())
+    val package1 = PackageRectangle(2, 3, 4)
+    println(package1.squareOfPackage())
     println()
 
-    val package2 = PackageCube()
-    println( package2.squareOfPackage())
+    val package2 = PackageCube(3)
+    println(package2.squareOfPackage())
 }
 
 abstract class Package() {
     abstract fun squareOfPackage(): Int
 }
 
-class PackageRectangle(): Package() {
-    val length = 2
-    val width = 3
-    val height = 4
+class PackageRectangle(val length: Int, val width: Int, val height: Int) : Package() {
+
     override fun squareOfPackage(): Int {
-       return length * width * height
+        return length * width * height
     }
 }
 
-class PackageCube(): Package() {
-    val edgeLength = 3
+class PackageCube(val edgeLength: Int) : Package() {
+
     override fun squareOfPackage(): Int {
-        return  6 * (edgeLength * edgeLength)
+        return 6 * (edgeLength * edgeLength)
     }
 }

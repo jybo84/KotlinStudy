@@ -10,18 +10,16 @@ package Lesson_18
 
 fun main() {
 
-    val fox = Fox("Алиса", "Ягоды")
+    val fox = Fox("Алиса")
     fox.eat()
     println()
 
-    val dog = Dog("Шарик", "Косточка")
+    val dog = Dog("Шарик")
     fox.eat()
     println()
 
-    val cat = Cat("Барсик", "рыба")
+    val cat = Cat("Барсик")
     cat.eat()
-
-
 }
 
 abstract class Animal(val name: String, val food: String) {
@@ -40,21 +38,21 @@ abstract class Animal(val name: String, val food: String) {
     }
 }
 
-class Fox(name: String, food: String) : Animal(name, food) {
+class Fox(name: String) : Animal(name, "Ягоды") {
 
     override fun eat() {
         println("Я $name - ем $food")
     }
 }
 
-class Dog(name: String, food: String) : Animal(name, food) {
+class Dog(name: String) : Animal(name, "косточку") {
 
     override fun eat() {
         println("Я $name - ем $food")
     }
 }
 
-class Cat(name: String, food: String) : Animal(name, food) {
+class Cat(name: String) : Animal(name, "рыбку") {
 
     override fun eat() {
         println("Я $name - ем $food")

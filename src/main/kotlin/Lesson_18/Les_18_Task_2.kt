@@ -4,8 +4,8 @@ package Lesson_18
 Задача 2 к Уроку 18
 
 В игре используются типы игральных костей с разным количеством граней: 4, 6 и 8.
-Опиши их иерархию, создав по классу на каждый тип. У каждой кости должен быть метод, бросающий кость и печатающий з
-начение в консоль.
+Опиши их иерархию, создав по классу на каждый тип. У каждой кости должен быть метод, бросающий кость и печатающий
+значение в консоль.
 Для демонстрации полиморфизма “включения”:
 - создай несколько объектов с разными гранями;
 - собери из них список объектов, указав тип списка;
@@ -20,21 +20,22 @@ fun main() {
     listDice.forEach { el -> el.castDice() }
 }
 
-abstract class Dice(private val edge: Int) {
+abstract class Dice() {
+    open val edge: Int = 6
     fun castDice() {
         val num = (1..edge).random()
         println("Выпала грань с цифрой $num")
     }
 }
 
-class DiceFourEdge(edge: Int = 4) : Dice(edge) {
+class DiceFourEdge() : Dice() {
+    override val edge: Int = 4
+}
+
+class DiceSixEdge() : Dice() {
 
 }
 
-class DiceSixEdge(edge: Int = 6) : Dice(edge) {
-
-}
-
-class DiceEightEdge(edge: Int = 8) : Dice(edge) {
-
+class DiceEightEdge() : Dice() {
+    override var edge: Int = 8
 }

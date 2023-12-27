@@ -12,30 +12,14 @@ package Lesson_19
 fun main() {
     println("на данный момент доступны следующие виды рыб:")
 
-    val dataFromServer = listOf(1, 2, 3, 4)
-
-    for (i in dataFromServer) {
-        when (i) {
-            Fish.GUPPY.num -> showInfoFish(Fish.GUPPY)
-            Fish.ANGELFISH.num -> showInfoFish(Fish.ANGELFISH)
-            Fish.GOLDFISH.num -> showInfoFish(Fish.GOLDFISH)
-            Fish.SIAMESE_FIGHTING_FISH.num -> showInfoFish(Fish.SIAMESE_FIGHTING_FISH)
-        }
-    }
+    for (fish in Fish.entries)
+        println(fish.title)
 }
 
-enum class Fish(val num: Int) {
-    GUPPY(1),
-    ANGELFISH(2),
-    GOLDFISH(3),
-    SIAMESE_FIGHTING_FISH(4),
+enum class Fish(val title: String) {
+    GUPPY("Гуппи"),
+    ANGELFISH("Скалярия"),
+    GOLDFISH("Золотая рыбка"),
+    SIAMESE_FIGHTING_FISH("Петушок"),
 }
 
-fun showInfoFish(fish: Fish) {
-    when (fish) {
-        Fish.GUPPY -> println("гуппи")
-        Fish.ANGELFISH -> println("скалярия")
-        Fish.GOLDFISH -> println("золотая рыбка")
-        Fish.SIAMESE_FIGHTING_FISH -> println("петушок")
-    }
-}

@@ -9,30 +9,23 @@ package Lesson_18
  */
 
 fun main() {
+    var screen = Screen()
+    screen.draw(point = Point(), 2)
+    screen.draw(square = Square(), 2, 2)
+    screen.draw(ring = Ring(), 3F, 3F)
 
-    val ring = Ring()
-    ring.draw(4, 3)
-    println()
-
-    val point = Point()
-    point.draw(5)
-    println()
-
-    val square = Square()
-    square.draw(2F, 3F)
-    println()
 }
 
-abstract class Screen() {
-    fun draw(x: Int) {
+open class Screen() {
+    fun draw(point: Point, x: Int) {
         println("поставлена точка в месте $x")
     }
 
-    fun draw(x: Int, y: Int) {
+    fun draw(square: Square, x: Int, y: Int) {
         println("нарисован квадрат в месте $x $y")
     }
 
-    fun draw(x: Float, y: Float) {
+    fun draw(ring: Ring, x: Float, y: Float) {
         println("нарисован круг в месте $x $y")
     }
 }

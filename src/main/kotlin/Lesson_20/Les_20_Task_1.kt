@@ -14,5 +14,5 @@ fun main() {
     println(text)
 
     val lamda2 = { username: String -> println("И тебя с Праздником $username") }
-    val greeting = lamda2("Иван")
+    lamda2("Иван")
 }

@@ -9,10 +9,9 @@ package Lesson_20
  */
 
 fun main() {
-    val lamda = { name: String -> "С наступающим новым годом $name" }
+    val lamda: (String) -> String
+    lamda = { name: String -> "С наступающим новым годом $name" }
     val text = lamda("Максим")
     println(text)
 
-    val lamda2 = { username: String -> println("И тебя с Праздником $username") }
-    lamda2("Иван")
 }

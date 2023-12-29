@@ -12,19 +12,16 @@ package Lesson_20
  */
 
 fun main() {
-    val player = Player("Max", 50, 100);
 
-     val lamda: (Player) -> Player
-    lamda = { player: Player -> player.  }            //TODO как здесь получить доступ к внутренностям player ???
+    val player = Player("Max", 50, 100)
 
+    val lamda: (Player) -> Int
+    lamda = { player: Player -> player.currentHealth + 25 }
 
-
-
-    println(player)
+    println(lamda(player))
 }
 
-class Player(var name: String, var currentHealth: Int, val maxHealth: Int){
-
+class Player(val name: String, val currentHealth: Int, val maxHealth: Int) {
     override fun toString(): String {
         return "Player(name='$name', currentHealth=$currentHealth, maxHealth=$maxHealth)"
     }

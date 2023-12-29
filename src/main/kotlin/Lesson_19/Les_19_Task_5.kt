@@ -16,31 +16,36 @@ fun main() {
         println("Введите имя хумана")
         val name = readln()
         println("пол какой")
-        val gender = readln().toInt()         // TODO здесь как то надо обрабатывать
-        when (gender) {
-            1 -> Gender.MEN.title
-            2 -> Gender.WOMEN.title
-            3 -> Gender.EUROPEAN.title
-        }
-        for (gen in Gender.entries)  // TODO здесь как то надо обрабатывать
-        var human = Human(name, gender)           // TODO здесь как то надо обрабатывать
+        val gender = readln()
+
+
+        var human = Human(name, gender )           // TODO здесь не получается
         listHuman.add(human)
     }
     listHuman.forEach { el -> el.humanInfo() }
 }
 
-class Human(private val name: String, private val gender: String) {
+class Human(private val name: String, gender: Gender) {
 
     fun humanInfo() {
-        println("Имя хумана $name пол $gender")
+        println("Имя хумана $name пол ${gender.title}")  // TODO здесь не видит почему то
     }
 }
 
 
 enum class Gender(var title: String) {
-    MEN("муж"),
-    WOMEN("жен"),
-    EUROPEAN("европеец"),
+    MEN("мужчина"),
+    WOMEN("женщина"),
+    EUROPEAN("неопределен");
+
+    fun getGender(text: String) {
+        when (text) {
+            "M" -> Gender.MEN.title
+            "Ж" -> Gender.WOMEN.title
+            "Н" -> Gender.EUROPEAN.title
+        }
+    }
 }
+
 
 

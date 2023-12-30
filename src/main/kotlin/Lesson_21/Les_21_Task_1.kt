@@ -7,6 +7,7 @@ package Lesson_21
 Назови функцию vowelCount. Например, для строки "hello" функция должна вернуть 2.
  */
 
+
 fun main() {
     val word = "hello"
     word.vowelCount()

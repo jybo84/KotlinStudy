@@ -10,42 +10,48 @@ package Lesson_19
 
  */
 fun main() {
+    println(
+        """                Инструкция
+        |пол может быть М Ж на русской раскладке клавиатуры
+    """.trimMargin()
+    )
+    println()
+
     val listHuman = mutableListOf<Human>()
 
     while (listHuman.size < 5) {
-        println("Введите имя хумана")
+        println("Введите имя человека")
         val name = readln()
-        println("пол какой")
-        val gender = readln()
+        println("Введите пол (согласно инструкции)")
+        val gender = getGender(readln())
 
-
-        var human = Human(name, gender )           // TODO здесь не получается
+        val human = Human(name, gender)
         listHuman.add(human)
     }
     listHuman.forEach { el -> el.humanInfo() }
 }
 
-class Human(private val name: String, gender: Gender) {
+class Human(private val name: String, val gender: Gender) {
 
     fun humanInfo() {
-        println("Имя хумана $name пол ${gender.title}")  // TODO здесь не видит почему то
+        println("Имя человека: $name пол: ${gender.title}")
     }
 }
-
 
 enum class Gender(var title: String) {
-    MEN("мужчина"),
-    WOMEN("женщина"),
+    MEN("мужской"),
+    WOMEN("женский"),
     EUROPEAN("неопределен");
+}
 
-    fun getGender(text: String) {
-        when (text) {
-            "M" -> Gender.MEN.title
-            "Ж" -> Gender.WOMEN.title
-            "Н" -> Gender.EUROPEAN.title
-        }
+fun getGender(text: String): Gender {
+    return when (text) {
+        "м" -> Gender.MEN
+        "ж" -> Gender.WOMEN
+        else -> Gender.EUROPEAN
     }
 }
+
 
 
 

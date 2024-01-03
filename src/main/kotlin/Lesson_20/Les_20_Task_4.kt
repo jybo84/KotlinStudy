@@ -13,15 +13,10 @@ fun main() {
 
     val element = listOf("Январь", "февраль", "март", "апрель", "май", "июнь", "июль", "август")
 
-    val lamdaList = { list: List<String> -> for (s in list) println("Нажат элемент $s") }
+    val lamda = element.map{ val lam = println("нажата $it") }
+    println()
 
-    val lamdaOdd =
-        { list: List<String> -> list.mapIndexed { index, s -> if (index % 2 != 0) println(s) } }
-
-
-    lamdaList(element)
-    println("__________________")
-    lamdaOdd(element)
+    val lamdaOdd = element.mapIndexed { index, s -> if (index % 2 == 0) print("$s ") }
 }
 
 

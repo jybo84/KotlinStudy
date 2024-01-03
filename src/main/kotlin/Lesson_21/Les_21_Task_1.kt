@@ -10,29 +10,16 @@ package Lesson_21
 
 fun main() {
     val word = "hello"
-    word.vowelCount()
-    word.vowelCountLamda(word)
+
+    println("В данной строке ${word.vowelCount()} гласных букв")
 }
 
-fun String.vowelCount() {
+fun String.vowelCount(): Int {
     var count = 0
     this.forEach { letter ->
         when (letter) {
             'a', 'e', 'i', 'o', 'u', 'y' -> count++
         }
     }
-    println("В данной строке $count гласных букв")
-}
-
-
-fun String.vowelCountLamda(text: String) {
-    var counter = 0
-    val lamda = { text: String  ->  text.forEach { el ->
-        when (el) {
-            'a', 'e', 'i', 'o', 'u', 'y' -> counter++
-        }
-    }
-    }
-    println("В данной строке  ${lamda(this)}")
-
+    return count
 }

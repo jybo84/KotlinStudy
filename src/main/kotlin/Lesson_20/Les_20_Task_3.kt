@@ -10,15 +10,15 @@ package Lesson_20
 
 fun main() {
 
-    val heroes = Heroes("Max", false)
+    val heroesMax = Heroes("Max", false)
 
-    val heroes2 = Heroes("Денис", true)
+    val heroesDenis = Heroes("Денис", true)
 
     val getInformationAboutKey =
-        { heroes: Heroes -> if (heroes.isHaveKey) println("Персонаж открыл дверь") else println("Дверь заперта") }
+        { heroes: Heroes -> if (heroes.isHaveKey) println("Персонаж ${heroes.name} открыл  дверь") else println("Дверь заперта") }
 
-    getInformationAboutKey(heroes)
-    getInformationAboutKey(heroes2)
+    getInformationAboutKey(heroesMax)
+    getInformationAboutKey(heroesDenis)
 }
 
 class Heroes(val name: String, val isHaveKey: Boolean)

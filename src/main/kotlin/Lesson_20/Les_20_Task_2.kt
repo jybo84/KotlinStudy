@@ -13,12 +13,12 @@ package Lesson_20
 
 fun main() {
 
-    val player = Player("Max", 50, 100)
+    val playerMax = Player("Max", 50, 100)
 
     val lamda: (Player) -> Int = { player: Player -> player.currentHealth + 25 }
 
-    println(lamda(player))
-    println(player)
+    println(lamda(playerMax))
+    println(playerMax)
 
 }
 

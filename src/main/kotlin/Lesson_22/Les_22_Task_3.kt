@@ -11,10 +11,13 @@ fun main() {
 
     val volga = Car("Волга", 100, "Черная")
 
-    println(volga.model)
-    println(volga.speed)
-    println(volga.color)
-    println()
+    val model = volga.component1()
+    val speed = volga.component2()
+    val color = volga.component3()
+
+    println(model)
+    println(speed)
+    println(color)
 }
 
 data class Car(val model: String, val speed: Int, val color: String)

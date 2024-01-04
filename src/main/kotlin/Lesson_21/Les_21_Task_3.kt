@@ -17,9 +17,7 @@ fun main() {
     println(person.isHealthy())
 }
 
-data class Person(val name: String, val currentHealth: Int, val maxHealth: Int) {
-
-}
+data class Person(val name: String, val currentHealth: Int, val maxHealth: Int)
 
 fun Person.isHealthy(): Boolean {
     return if (currentHealth == maxHealth) true

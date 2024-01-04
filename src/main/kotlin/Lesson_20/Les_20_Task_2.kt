@@ -24,6 +24,6 @@ fun main() {
 
 class Player(val name: String, var currentHealth: Int, val maxHealth: Int) {
     override fun toString(): String {
-        return "Имя игрока:$name, текущее здоровье: $currentHealth, максимальное здоровье: $maxHealth)"
+        return "Имя игрока:$name, текущее здоровье: $currentHealth, максимальное здоровье: $maxHealth"
     }
 }

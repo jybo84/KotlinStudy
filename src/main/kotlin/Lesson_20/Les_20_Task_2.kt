@@ -15,14 +15,14 @@ fun main() {
 
     val playerMax = Player("Max", 50, 100)
 
-    val lamda: (Player) -> Int = { player: Player -> player.currentHealth + 25 }
+    val lamda: (Player) -> Unit = { player: Player -> player.currentHealth = player.maxHealth }
 
-    println(lamda(playerMax))
+    lamda(playerMax)
     println(playerMax)
 
 }
 
-class Player(val name: String, val currentHealth: Int, val maxHealth: Int) {
+class Player(val name: String, var currentHealth: Int, val maxHealth: Int) {
     override fun toString(): String {
         return "Имя игрока:$name, текущее здоровье: $currentHealth, максимальное здоровье: $maxHealth)"
     }

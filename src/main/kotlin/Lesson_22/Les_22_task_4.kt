@@ -24,18 +24,19 @@ fun main() {
 
     val mainScreenState = MainScreenState()
     println(mainScreenState)
-    println(loadData(mainScreenState, true))
+    mainScreenState.loadData(mainScreenState, true)
 }
 
-data class MainScreenState(var data: String = "нет данных", var isLoading: Boolean = false)
+data class MainScreenState(var data: String = "нет данных", var isLoading: Boolean = false) {
 
-fun loadData(mainScreenState: MainScreenState, isLoading: Boolean): MainScreenState {
-    val newObj = mainScreenState.copy()
-    if (isLoading) {
-        newObj.isLoading = true
-        newObj.data = "база данных загружена"
+    fun loadData(mainScreenState: MainScreenState, isLoading: Boolean) {
+        val newObj = mainScreenState.copy()
+        if (isLoading) {
+            newObj.isLoading = true
+            newObj.data = "база данных загружена"
+        }
+        println(newObj)
     }
-    return newObj
 }
 
 

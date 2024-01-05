@@ -15,7 +15,7 @@ fun main() {
     do {
         val userPasswordLength = readln().toInt()
         if (userPasswordLength >= 6) {
-            val password = (0..<userPasswordLength).map {
+            val password = (0..< userPasswordLength).map {
                 ((0..9) + ('a'..'z') + ('A'..'Z')).random()
             }
             println(password.joinToString(""))

@@ -14,11 +14,16 @@ package Lesson_10
 
 fun main() {
 
+    println("Введите логин")
+    val userLogin = readln()
+    println("Введите пароль")
+    val userPassword = readln()
+
     val shop = Shop()
 
-    println(shop.authorization())  // получаем токен
+    println(shop.authorization(userLogin, userPassword))  // получаем токен
 
-    shop.getBasket(shop.authorization())   // по токену получаем содержимое корзины
+    shop.getBasket(shop.authorization(userLogin, userPassword))   // по токену получаем содержимое корзины
 }
 
 class Shop() {
@@ -27,11 +32,7 @@ class Shop() {
     private val basket = listOf("ноут", "наушники", "кружка для кофе")
 
 
-    fun authorization(): String? {
-        println("Введите логин")
-        val userLogin = readln()
-        println("Введите пароль")
-        val userPassword = readln()
+    fun authorization(userLogin: String, userPassword: String): String? {
         if (userLogin == login && userPassword == password) {
             println("верификация пройдена")
             val token = (0..32).map {

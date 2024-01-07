@@ -20,37 +20,23 @@ package Lesson_4
 
 
 fun main() {
-    val taskForHand = true
-    val taskForBelly = true
-    val taskForFoot = true
-    val taskForBack = true
 
     println("какой день Вы тренируетесь")
     val numberOfDay = readln().toInt()
-    val evenDay = if (numberOfDay % 2 == 0) false else true
-    if (evenDay == false) {
-        println(
-            """
+    val evenDay = numberOfDay % 2 == 0
+
+    val Hand = true
+    val Belly = true
+    val Foot = true
+    val Back = true
+
+    println(
+        """
             Сегодня $numberOfDay-ое занятие   
-            Упражнения для рук: ${taskForHand}
-            Упражнения для ног: ${!taskForFoot}
-            Упражнения для спины: ${!taskForBack}
-            Упражнения для пресса: ${taskForBelly}
+            Упражнения для рук: ${if (evenDay) Hand else !Hand} 
+            Упражнения для ног: ${if (evenDay) !Foot else Foot}
+            Упражнения для спины: ${if (evenDay) !Back else Back}
+            Упражнения для пресса: ${if (evenDay) Belly else !Belly}
         """.trimIndent()
-        )
-    } else
-        println(
-            """
-            Сегодня $numberOfDay-ое занятий 
-            Упражнения для рук: ${!taskForHand}
-            Упражнения для ног: ${taskForFoot}
-            Упражнения для спины: ${taskForBack}
-            Упражнения для пресса: ${!taskForBelly}
-            
-        """.trimIndent()
-        )
-    return
+    )
 }
-
-
-

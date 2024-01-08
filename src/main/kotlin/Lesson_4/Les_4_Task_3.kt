@@ -21,7 +21,7 @@ package Lesson_4
 И типами данных - boolean, boolean, int, String.
  */
 
-const val WEATHER_SUNNY = true
+const val IS_WEATHER_SUNNY = true
 const val IS_TENT_OPEN = true
 const val WET = 20
 const val BAD_SEASON = "winter"
@@ -31,13 +31,13 @@ fun main() {
     val wetToDay = 20
     val seasonToDay = "winter"
 
-    var text = "Благоприятные ли условия сейчас для роста бобовых?. "
-
-    val res = if (weatherToDaySunny == WEATHER_SUNNY
-        && tentToDayOpen == IS_TENT_OPEN
-        && wetToDay == WET
-        && seasonToDay != BAD_SEASON
-    ) true else false
-
-    println(text + res)
+    val res = (weatherToDaySunny == IS_WEATHER_SUNNY
+            && tentToDayOpen == IS_TENT_OPEN
+            && wetToDay == WET
+            && seasonToDay != BAD_SEASON
+            )
+    when (res) {
+        true -> println("Благоприятные ли условия сейчас для роста бобовых?. $res")
+        false -> println("Благоприятные ли условия сейчас для роста бобовых?. $res")
+    }
 }

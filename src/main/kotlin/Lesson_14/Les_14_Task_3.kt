@@ -19,102 +19,73 @@ package Lesson_14
 
 fun main() {
 
-    val ring1 = Ring(5)
-    println( ring1.square())
+    val ring1 = Ring("белый", 5)
+    println(ring1.square())
 
-    val ring2 = Ring(10)
-    println( ring2.square())
+    val ring2 = Ring("чёрный", 10)
+    println(ring2.perimeter())
 
-    val ring3 = Ring(15)
-    println( ring3.square())
+    val rectangle1 = Rectangle("белый", 2, 1)
+    println(rectangle1.square())
 
-    val list = listOf(ring1, ring2, ring3)
+    val rectangle2 = Rectangle("чёрный", 3, 1)
+    println(rectangle2.perimeter())
+
+    val list = listOf(ring1, ring2, rectangle1, rectangle2)
+    println()
+    sumPerimeter(list)
+    println()
     sumSquare(list)
+}
 
+
+abstract class Figure(var color: String) {
+
+    abstract fun square(): Float
+
+
+    abstract fun perimeter(): Float
+}
+
+class Ring(color: String, private val radius: Int) : Figure(color) {
+    override fun square(): Float {
+        return (3.14 * (radius * radius)).toFloat()
+    }
+
+    override fun perimeter(): Float {
+        return (2 * 3.14 * radius).toFloat()
+    }
+}
+
+class Rectangle(color: String, private val sideOne: Int, private val sideTwo: Int) : Figure(color) {
+
+    override fun square(): Float {
+        return (sideOne + sideTwo).toFloat()
+    }
+
+    override fun perimeter(): Float {
+        return (2 * (sideOne + sideTwo)).toFloat()
+    }
+}
+
+fun sumSquare(list: List<Figure>) {
+    val newList = mutableListOf<Figure>()
+    list.forEach { el ->
+        if (el.color == "белый") {
+            newList.add(el)
         }
-
-
-
- open class Figure(){
-
-     open fun square(): Double{
-         return 3.14
-     }
-}
-
-class Ring(private val radius: Int): Figure() {
-    override fun square(): Double {
-        return (3.14 * (radius * radius))
-
     }
+    val listTot = newList.map { it.square() }.sum()
+    println(listTot)
 }
 
-
-    fun sumSquare(list: List<Figure>) {
-        val listTot = list.map { it.square() }
-        println(listTot)
-
+fun sumPerimeter(list: List<Figure>) {
+    val newList = mutableListOf<Figure>()
+    list.forEach { el ->
+        if (el.color == "чёрный") {
+            newList.add(el)
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*const val PI = 3.14
-fun main() {
-
-    val ring1 = Ring("белый", 10F)
-    println( ring1.color)
-    ring1.getSquare()
-    ring1.getPerimeter()
-    println()
-
-    val ring2 = Ring("чёрный", 15F)
-    println( ring2.color)
-    ring2.getSquare()
-    ring2.getPerimeter()
-    println()
-
-    val ring3 = Ring("чёрный", 20F)
-    println( ring3.color)
-    ring3.getSquare()
-    ring3.getPerimeter()
-    println()
-
-
-    val list = listOf(ring1, ring2, ring3)
-
-
-}
-
-abstract class Figure(val color: String){
-
-    abstract fun getSquare()
-    abstract fun getPerimeter()
-}
-
-class Ring(color: String, val radius: Float): Figure(color){
-
-    override fun getSquare() {
-        println((PI * (radius * radius)).toFloat())
     }
-
-    override fun getPerimeter() {
-        println((2 * PI * radius).toFloat())
-    }
-}*/
+    val listTot = newList.map { it.perimeter() }.sum()
+    println(listTot)
+}

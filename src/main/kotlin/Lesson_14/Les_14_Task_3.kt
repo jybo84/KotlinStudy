@@ -33,9 +33,9 @@ fun main() {
 
     val list = listOf(ring1, ring2, rectangle1, rectangle2)
     println()
-    sumPerimeter(list)
+    sumPerimeterBlack(list)
     println()
-    sumSquare(list)
+    sumSquareWhite(list)
 }
 
 
@@ -68,7 +68,7 @@ class Rectangle(color: String, private val sideOne: Int, private val sideTwo: In
     }
 }
 
-fun sumSquare(list: List<Figure>) {
+fun sumSquareWhite(list: List<Figure>) {
     val newList = mutableListOf<Figure>()
     list.forEach { el ->
         if (el.color == "белый") {
@@ -79,7 +79,7 @@ fun sumSquare(list: List<Figure>) {
     println(listTot)
 }
 
-fun sumPerimeter(list: List<Figure>) {
+fun sumPerimeterBlack(list: List<Figure>) {
     val newList = mutableListOf<Figure>()
     list.forEach { el ->
         if (el.color == "чёрный") {

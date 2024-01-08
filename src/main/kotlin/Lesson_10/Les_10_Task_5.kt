@@ -21,9 +21,9 @@ fun main() {
 
     val shop = Shop()
 
-    println(shop.authorization(userLogin, userPassword))  // получаем токен
+    val token = shop.authorization(userLogin, userPassword)
 
-    shop.getBasket(shop.authorization(userLogin, userPassword))   // по токену получаем содержимое корзины
+    shop.getBasket(token)   // по токену получаем содержимое корзины
 }
 
 class Shop() {
@@ -45,8 +45,8 @@ class Shop() {
         return null
     }
 
-    fun getBasket(authorizaton: String?) {
-        if (authorizaton != null)
+    fun getBasket(token: String?) {
+        if (token != null)
             println("Ваша корзина: ${basket.joinToString(", ")}")
         else
             return println("Список товаров не может быть получен")

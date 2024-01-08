@@ -16,7 +16,66 @@ package Lesson_14
 - сумму периметров всех черных фигур;
 - сумму площадей всех белых фигур.
  */
-const val PI = 3.14
+
+fun main() {
+
+    val ring1 = Ring(5)
+    println( ring1.square())
+
+    val ring2 = Ring(10)
+    println( ring2.square())
+
+    val ring3 = Ring(15)
+    println( ring3.square())
+
+    val list = listOf(ring1, ring2, ring3)
+    sumSquare(list)
+
+        }
+
+
+
+ open class Figure(){
+
+     open fun square(): Double{
+         return 3.14
+     }
+}
+
+class Ring(private val radius: Int): Figure() {
+    override fun square(): Double {
+        return (3.14 * (radius * radius))
+
+    }
+}
+
+
+    fun sumSquare(list: List<Figure>) {
+        val listTot = list.map { it.square() }
+        println(listTot)
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*const val PI = 3.14
 fun main() {
 
     val ring1 = Ring("белый", 10F)
@@ -58,4 +117,4 @@ class Ring(color: String, val radius: Float): Figure(color){
     override fun getPerimeter() {
         println((2 * PI * radius).toFloat())
     }
-}
+}*/

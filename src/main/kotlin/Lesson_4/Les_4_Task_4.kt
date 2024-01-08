@@ -23,20 +23,20 @@ fun main() {
 
     println("какой день Вы тренируетесь")
     val numberOfDay = readln().toInt()
-    val evenDay = numberOfDay % 2 == 0
+    val isEvenDay = numberOfDay % 2 == 0
 
-    val Hand = true
-    val Belly = true
-    val Foot = true
-    val Back = true
+    val Hand = isEvenDay
+    val Belly = isEvenDay
+    val Foot = !isEvenDay
+    val Back = !isEvenDay
 
     println(
         """
             Сегодня $numberOfDay-ое занятие   
-            Упражнения для рук: ${if (evenDay) Hand else !Hand} 
-            Упражнения для ног: ${if (evenDay) !Foot else Foot}
-            Упражнения для спины: ${if (evenDay) !Back else Back}
-            Упражнения для пресса: ${if (evenDay) Belly else !Belly}
+            Упражнения для рук: $Hand 
+            Упражнения для ног: $Foot
+            Упражнения для спины: $Back
+            Упражнения для пресса: $Belly
         """.trimIndent()
     )
 }

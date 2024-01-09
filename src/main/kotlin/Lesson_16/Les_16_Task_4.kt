@@ -13,32 +13,28 @@ package Lesson_16
 fun main() {
     val order = Shop(123)
     println(order)
-    val message = messageAboutChangeStatus(true)
-    order.changeStatus(message, order)
-    println(order)
+    order.managerStatusChange(true)
 }
 
-private class Shop(
+class Shop(
     private val numberOfOrder: Int,
     private var status: Boolean = false
 ) {
-
-    fun setStatus(value: Boolean) {
-        status = value
-    }
-
     override fun toString(): String {
-        return "Заказ с номером $numberOfOrder, в статусе ${if (!status) "еще комплектуется" else "готов можно забирать"}"
+        return "Заказ с номером $numberOfOrder, в статусе ${if (!status) "еще комплектуется" else "можно забирать"}"
     }
 
-    fun changeStatus(status: Boolean, order: Shop): Shop {
-        setStatus(status)
-        return order
+    private fun changeStatus(newStatus: Boolean): Boolean {
+        status = newStatus
+        println(
+            "Статус заказа ${numberOfOrder} изменен на:" +
+                    " ${if (newStatus) "Заказ - готов к выжаче" else "Заказ - eще компелктуется"}"
+        )
+        return newStatus
+    }
+
+    fun managerStatusChange(newStatus: Boolean) {
+        println("Отправка запроса на изменение статуса заказа номер $numberOfOrder")
+        changeStatus(newStatus)
     }
 }
-
-fun messageAboutChangeStatus(status: Boolean): Boolean {
-    return status
-}
-
-

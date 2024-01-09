@@ -19,16 +19,16 @@ package Lesson_14
 
 fun main() {
 
-    val ring1 = Ring("белый", 5)
+    val ring1 = Ring(Color.WHITE.name, 5)
     println(ring1.square())
 
-    val ring2 = Ring("чёрный", 10)
+    val ring2 = Ring(Color.BLACK.name, 10)
     println(ring2.perimeter())
 
-    val rectangle1 = Rectangle("белый", 2, 1)
+    val rectangle1 = Rectangle(Color.WHITE.name, 2, 1)
     println(rectangle1.square())
 
-    val rectangle2 = Rectangle("чёрный", 3, 1)
+    val rectangle2 = Rectangle(Color.BLACK.name, 3, 1)
     println(rectangle2.perimeter())
 
     val list = listOf(ring1, ring2, rectangle1, rectangle2)
@@ -42,7 +42,6 @@ fun main() {
 abstract class Figure(var color: String) {
 
     abstract fun square(): Float
-
 
     abstract fun perimeter(): Float
 }
@@ -69,23 +68,16 @@ class Rectangle(color: String, private val sideOne: Int, private val sideTwo: In
 }
 
 fun sumSquareWhite(list: List<Figure>) {
-    val newList = mutableListOf<Figure>()
-    list.forEach { el ->
-        if (el.color == "белый") {
-            newList.add(el)
-        }
-    }
-    val listTot = newList.map { it.square() }.sum()
-    println(listTot)
+    val newList = list.filter { it.color == Color.WHITE.name }.map { it.square() }.sum()
+    println(newList)
 }
 
 fun sumPerimeterBlack(list: List<Figure>) {
-    val newList = mutableListOf<Figure>()
-    list.forEach { el ->
-        if (el.color == "чёрный") {
-            newList.add(el)
-        }
-    }
-    val listTot = newList.map { it.perimeter() }.sum()
-    println(listTot)
+    val newList = list.filter { it.color == Color.BLACK.name }.map { it.perimeter() }.sum()
+    println(newList)
+}
+
+enum class Color( name: String){
+    BLACK("Чёрный"),
+    WHITE("Белый")
 }

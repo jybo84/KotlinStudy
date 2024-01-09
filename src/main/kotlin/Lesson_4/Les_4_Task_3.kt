@@ -31,13 +31,7 @@ fun main() {
     val wetToDay = 20
     val seasonToDay = "winter"
 
-    val res = (weatherToDaySunny == IS_WEATHER_SUNNY
-            && tentToDayOpen == IS_TENT_OPEN
-            && wetToDay == WET
-            && seasonToDay != BAD_SEASON
-            )
-    when (res) {
-        true -> println("Благоприятные ли условия сейчас для роста бобовых?. $res")
-        false -> println("Благоприятные ли условия сейчас для роста бобовых?. $res")
-    }
+    println("Благоприятные ли условия сейчас для роста бобовых?. ${if (weatherToDaySunny == IS_WEATHER_SUNNY
+            && tentToDayOpen == IS_TENT_OPEN && wetToDay == WET && seasonToDay != BAD_SEASON) true else false}")
+
 }

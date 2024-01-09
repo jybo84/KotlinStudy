@@ -48,11 +48,11 @@ abstract class Figure(var color: String) {
 
 class Ring(color: String, private val radius: Int) : Figure(color) {
     override fun square(): Float {
-        return (3.14 * (radius * radius)).toFloat()
+        return (Math.PI * (radius * radius)).toFloat()
     }
 
     override fun perimeter(): Float {
-        return (2 * 3.14 * radius).toFloat()
+        return (2 * Math.PI * radius).toFloat()
     }
 }
 

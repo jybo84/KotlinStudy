@@ -17,22 +17,33 @@ Temperature и PrecipitationAmount.
 
 fun main() {
 
+    val weatherStationStats1 = Temperature(2)
+    val weatherStationStats2 = PrecipitationAmount(2.0)
+
     val weatherServer = WeatherServer()
-    weatherServer.sendMassageOnServer(2.0)
-    weatherServer.sendMassageOnServer(5)
+    weatherServer.sendMassageOnServer(weatherStationStats1)
+    weatherServer.sendMassageOnServer(weatherStationStats2)
 }
 
 abstract class WeatherStationStats()
 
-open class Temperature(private val temp: Int) : WeatherStationStats()
+open class Temperature(private val temp: Int) : WeatherStationStats() {
+    override fun toString(): String {
+        return "$temp"
+    }
+}
 
-open class PrecipitationAmount(private val amount: Double) : WeatherStationStats()
+open class PrecipitationAmount(private val amount: Double) : WeatherStationStats() {
+    override fun toString(): String {
+        return "$amount"
+    }
+}
 
 class WeatherServer() {
     fun sendMassageOnServer(weatherStationStats: WeatherStationStats) {
         when (weatherStationStats) {
-            is Temperature -> println("Данные о температуре: ${temp}")
-            is PrecipitationAmount -> println("Данные о количестве осадков: $amount")
+            is Temperature -> println("Данные о температуре: ${weatherStationStats}")
+            is PrecipitationAmount -> println("Данные о количестве осадков: ${weatherStationStats}")
         }
     }
 }

@@ -1,5 +1,6 @@
 package Lesson_15
 
+
 /*
 Задача 2 к Уроку 15
 
@@ -29,12 +30,22 @@ open class Temperature(private val temp: Int) : WeatherStationStats()
 open class PrecipitationAmount(private val amount: Double) : WeatherStationStats()
 
 class WeatherServer() {
-    fun sendMassageOnServer(temp: Int) {
-        println("Данные о температуре: $temp")
+        fun sendMassageOnServer(weatherStationStats: WeatherStationStats) {
+            when(weatherStationStats){
+                Temperature() -> println("Данные о температуре: $temp")
+                PrecipitationAmount() -> ("Данные о количестве осадков: $amount")
+
+            }
+
+        }
+
     }
 
-    fun sendMassageOnServer(amount: Double) {
-        println("Данные о количестве осадков: $amount")
-    }
+
+fun sendMassageOnServer(temp: Int) {
+    println("Данные о температуре: $temp")
 }
 
+fun sendMassageOnServer(amount: Double) {
+    println("Данные о количестве осадков: $amount")
+}

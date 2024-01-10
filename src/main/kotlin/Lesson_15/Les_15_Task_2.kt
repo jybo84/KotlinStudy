@@ -31,7 +31,7 @@ open class PrecipitationAmount(private val amount: Double) : WeatherStationStats
 class WeatherServer() {
     fun sendMassageOnServer(weatherStationStats: WeatherStationStats) {
         when (weatherStationStats) {
-            is Temperature -> println("Данные о температуре: $temp")
+            is Temperature -> println("Данные о температуре: ${temp}")
             is PrecipitationAmount -> println("Данные о количестве осадков: $amount")
         }
     }

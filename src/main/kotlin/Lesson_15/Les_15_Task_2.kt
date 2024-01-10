@@ -26,7 +26,6 @@ abstract class WeatherStationStats()
 
 open class Temperature(private val temp: Int) : WeatherStationStats()
 
-
 open class PrecipitationAmount(private val amount: Double) : WeatherStationStats()
 
 class WeatherServer() {
@@ -34,10 +33,7 @@ class WeatherServer() {
         when (weatherStationStats) {
             is Temperature -> println("Данные о температуре: $temp")
             is PrecipitationAmount -> println("Данные о количестве осадков: $amount")
-
         }
-
     }
-
 }
 

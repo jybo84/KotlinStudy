@@ -26,15 +26,13 @@ package Lesson_4
  */
 
 
-const val IS_HAVE_DAMAGE = false
 val CREW = (55..70)
-val provisions = 49
-val isGoodWeather = true
+val provisions = 50
 
 fun main() {
 
     println("Ваш корабль имеет повреждения? да/нет")
-    val damage = readln() == "нет"
+    val isNotDamage = readln() == "нет"
 
     println("введите количество экипажа ")
     val team = readln().toInt()
@@ -43,11 +41,10 @@ fun main() {
     val eat = readln().toInt()
 
     println("Погода благоприятная")
-    val weather = readln() == "да"
+    val isGoodWeather = readln() == "да"
 
-    if ((damage) && (team in CREW) && (eat > provisions)) {
+    if ((isNotDamage) && (team in CREW) && (eat > provisions)) {
         println("Вы готовы к полету")
-        return
     } else if ((team == 70) && (eat <= 50) && (isGoodWeather)) {
         println("Вы готовы к альтернативному полету")
     } else

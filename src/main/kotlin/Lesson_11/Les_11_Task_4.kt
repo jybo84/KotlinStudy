@@ -1,5 +1,7 @@
 package Lesson_11
 
+import java.awt.Menu
+
 /*
 Задача 4 к Уроку 11
 
@@ -12,14 +14,14 @@ www.figma.com/file/89K5JomHGyIkUFUaBKRBXi/RecipesApp?type=design&node-id=1%3A181
  */
 
 fun main() {
-    val burger = Menu(Category())
+    val burger = Menu(category = )
 
 
     println(burger)
 
 }
 
-data class Menu(
+ class Menu(
     val category: Category,
 //    val nameOfDish: String,
 //    val ingredients: String,

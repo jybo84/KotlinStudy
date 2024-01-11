@@ -13,10 +13,16 @@ www.figma.com/file/89K5JomHGyIkUFUaBKRBXi/RecipesApp?type=design&node-id=1%3A181
 
 fun main() {
     val dish1 = Menu(
-        Category.BURGERS.title, NameOfDish.CLASSICAL_BURGER.title,
-        Ingredients.CLASSICAL_BURGER_INGREDIENTS
+        Category.BURGERS.title, NameOfDish.CLASSICAL_BURGER.title, Ingredients().classicalBurgerIngredients
     )
+
+    val dish2 = Menu(
+        Category.SOUP.title, NameOfDish.CHICKEN_SOUP.title, Ingredients().chickenSoupIngredients
+    )
+
     println(dish1)
+    println()
+    println(dish2)
 
 }
 
@@ -24,12 +30,11 @@ data class Menu(
 
     val category: String,
     val nameOfDish: String,
-    //val ingredients: String,
-    val ingredients: Ingredients,
-    //val recipe: String,
-) {
+    val ingredients: List<String>,
+
+    ) {
     override fun toString(): String {
-        return "категория: $category название блюда: $nameOfDish ингридиенты: $ingredients"
+        return "категория: $category \nназвание блюда: $nameOfDish \nИнгридиенты: ${ingredients.joinToString(", ")}"
     }
 }
 
@@ -49,20 +54,15 @@ enum class NameOfDish(var title: String) {
     BORSCH("Борщ"),
     OLIVE("Оливье"),
     SALAD_SEA_CABBAGE("Салат из морской капусты"),
-
 }
 
-enum class Ingredients(list: List<String>) {
-    CLASSICAL_BURGER_INGREDIENTS(listOf("булка", "котлета", "кетчуп", "майонез")),
-    MUSHROOM_BURGER_INGREDIENTS(listOf("булка", "котлета", "кетчуп", "майонез", "грибы")),
-    CLASSIC_PIZZA_INGREDIENTS(listOf("тесто", "колбаса", "сыр", "помидоры")),
-    MUSHROOM_PIZZA_INGREDIENTS(listOf("тесто", "колбаса", "сыр", "помидоры", "грибы")),
-    CHICKEN_SOUP_INGREDIENTS(listOf("вода", "соль", "яйцо", "курица")),
-    BORSCH_INGREDIENTS(listOf("капуста", "картоха", "свекла", "мясо", "вода", "соль")),
-    OLIVE_INGREDIENTS(listOf("картоха", "горошек", "огурец", "морковка")),
-    SALAD_SEA_CABBAGE_INGREDIENTS(listOf("морская капуста")),
-}
-
-fun fff(ingredients: String){
-    for (el in ingredients) println(el)
+class Ingredients() {
+    val classicalBurgerIngredients = listOf("булка", "котлета", "кетчуп", "майонез")
+    val mushroomBurgerIngredients = listOf("булка", "котлета", "кетчуп", "майонез", "грибы")
+    val classicPizzaIngredients = listOf("тесто", "колбаса", "сыр", "помидоры")
+    val mushroomPizzaIngredients = listOf("тесто", "колбаса", "сыр", "помидоры", "грибы")
+    val chickenSoupIngredients = listOf("вода", "соль", "яйцо", "курица")
+    val borschIngredients = listOf("капуста", "картоха", "свекла", "мясо", "вода", "соль")
+    val oliveIngredients = listOf("картоха", "горошек", "огурец", "морковка")
+    val saladSeaCabbageIngredients = listOf("морская капуста")
 }

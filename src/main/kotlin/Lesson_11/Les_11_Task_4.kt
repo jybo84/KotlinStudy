@@ -1,7 +1,5 @@
 package Lesson_11
 
-import java.awt.Menu
-
 /*
 Задача 4 к Уроку 11
 
@@ -14,28 +12,43 @@ www.figma.com/file/89K5JomHGyIkUFUaBKRBXi/RecipesApp?type=design&node-id=1%3A181
  */
 
 fun main() {
-    val burger = Menu(category = )
+    val burger = Menu(Cat.BURG.names )
 
 
     println(burger)
 
 }
 
- class Menu(
-    val category: Category,
+ data class Menu(
+     val cat: String
 //    val nameOfDish: String,
 //    val ingredients: String,
 //    val recipe: String,
 
 
-)
+){
+     override fun toString(): String {
+         return "$cat"
+     }
+ }
 
-data class Category(
-    val burgers: String = "Бургеры",
-    val pizza: String ="Пицца",
-    val soup: String = "Суп",
-    val salad: String = "Салат",
-)
+
+
+//enum class Category(
+//    val burgers: String = "Бургеры",
+//    val pizza: String ="Пицца",
+//    val soup: String = "Суп",
+//    val salad: String = "Салат",
+//)
+
+enum class Category(var title: String){
+    BURGERS("бургеры")
+
+}
+
+enum class Cat(var names: String){
+    BURG("Булка")
+}
 
 class NameOfDish(
     val classicBurger: String = "Бургер классический",
@@ -177,3 +190,50 @@ class Recipe(
 //) {
 //    fun reciepOfPizzaShow() = println(reciepOfPizza)
 //}
+
+
+/*
+fun main() {
+    println(
+        """                Инструкция
+        |пол может быть М Ж на русской раскладке клавиатуры
+    """.trimMargin()
+    )
+    println()
+
+    val listHuman = mutableListOf<Human>()
+
+    while (listHuman.size < 5) {
+        println("Введите имя человека")
+        val name = readln()
+        println("Введите пол (согласно инструкции)")
+        val gender = getGender(readln())
+
+        val human = Human(name, gender)
+        listHuman.add(human)
+    }
+    listHuman.forEach { el -> el.humanInfo() }
+}
+
+class Human(private val name: String, val gender: Gender) {
+
+    fun humanInfo() {
+        println("Имя человека: $name пол: ${gender.title}")
+    }
+}
+
+enum class Gender(var title: String) {
+    MEN("мужской"),
+    WOMEN("женский"),
+    EUROPEAN("неопределен");
+}
+
+fun getGender(text: String): Gender {
+    return when (text) {
+        "м" -> Gender.MEN
+        "ж" -> Gender.WOMEN
+        else -> Gender.EUROPEAN
+    }
+}
+
+ */

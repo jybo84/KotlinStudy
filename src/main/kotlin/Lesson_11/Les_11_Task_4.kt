@@ -12,16 +12,23 @@ www.figma.com/file/89K5JomHGyIkUFUaBKRBXi/RecipesApp?type=design&node-id=1%3A181
  */
 
 fun main() {
+    val burger = Menu(Category())
+
+
+    println(burger)
 
 }
 
-class Menu(
+data class Menu(
     val category: Category,
-    val nameOfDish: String,
+//    val nameOfDish: String,
+//    val ingredients: String,
+//    val recipe: String,
+
 
 )
 
-class Category(
+data class Category(
     val burgers: String = "Бургеры",
     val pizza: String ="Пицца",
     val soup: String = "Суп",
@@ -29,9 +36,26 @@ class Category(
 )
 
 class NameOfDish(
-    val classicBurfer =
+    val classicBurger: String = "Бургер классический",
+    val mushroomBurger: String = "Бургер с грибами",
+    val classicPizza: String = "Классичееская пицца",
+    val mushroomPizza: String = "Грибная пицца",
+    val chickenSoup: String = "Куринный суп",
+    val borsch: String = "Борщ",
+    val olive: String = "Оливье",
+    val saladSeaCabbage: String = "Салат из морской капусты"
 )
 
+class Ingredients(
+   val classicBurgerIngredients: List<String> = listOf("булка", "котлета", "кетчуп", "майонез"),
+   val mushroomBurgerIngredients: List<String> = listOf("булка", "котлета", "кетчуп", "майонез", "грибы"),
+   val classicPizzaIngredients: List<String> = listOf("тесто", "колбаса", "сыр", "помидоры"),
+   val mushroomPizzaIngredients: List<String> = listOf("тесто", "колбаса", "сыр", "помидоры", "грибы"),
+   val chickenSoupIngredients: List<String> = listOf("вода", "соль", "яйцо", "курица"),
+   val borschIngredients: List<String> = listOf("капуста", "картоха", "свекла", "мясо", "вода", "соль"),
+   val oliveIngredients: List<String> = listOf("картоха", "горошек", "огурец", "морковка"),
+   val saladSeaCabbageIngredients: List<String> = listOf("морская капуста"),
+)
 
 /*
 fun main() {

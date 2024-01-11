@@ -45,11 +45,8 @@ fun main() {
 
     if ((isNotDamage) && (team in CREW) && (eat > provisions)) {
         println("Вы готовы к полету")
-    } else if ((team == 70) && (eat <= 50) && (isGoodWeather)) {
-        println("Вы готовы к альтернативному полету")
+    } else if ((team == 70) && (eat >= 50) && (isGoodWeather)) {
+        println("Вы готовы к альтернативному плаванию")
     } else
-        println("Ваш корабль не готов к полету")
+        println("Ваш корабль не готов к долгосросному плаванию")
 }
-
-
-

@@ -9,10 +9,10 @@ fun main() {
     val second = Second("")
 }
 
-data class First( val userId: Int = (0..100).random())
+data class First( val userId: Int = (0..100).random()) //TODO здесь нормально
 
 
-data class Second(val userId: Int = (0..100).random(), val name: String)
+data class Second(val userId: Int = (0..100).random(), val name: String) // TODO здесь не хочет
 
 
 

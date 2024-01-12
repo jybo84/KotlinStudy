@@ -6,7 +6,7 @@ fun main() {
     println(first)
     println()
 
-    val second = Second("")
+    val second = Second(111, "Max")
 }
 
 data class First( val userId: Int = (0..100).random()) //TODO здесь нормально

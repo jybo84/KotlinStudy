@@ -21,22 +21,28 @@ ViewModel будет содержать внутренний data class MainScre
  */
 
 fun main() {
+    val condition = MainScreenViewModel()
+    println(condition.loadData())
 
-    val mainScreenState = MainScreenState()
-    println(mainScreenState)
-    mainScreenState.loadData(mainScreenState, true)
+    val condition2 = condition.loadDataEnd("Поступившие данные")
+    println(condition2)
 }
 
-data class MainScreenState(var data: String = "нет данных", var isLoading: Boolean = false) {
+class MainScreenViewModel {
+    val mss = MainScreenState()
 
-    fun loadData(mainScreenState: MainScreenState, isLoading: Boolean) {
-        val newObj = mainScreenState.copy()
-        if (isLoading) {
-            newObj.isLoading = true
-            newObj.data = "база данных загружена"
-        }
-        println(newObj)
+    fun loadData(): MainScreenState {
+        val newMss = mss.copy(isLoading = true)
+        return newMss
     }
+
+    fun loadDataEnd(dataInput: String): MainScreenState {
+        val newMss = mss.copy(data = dataInput)
+        return newMss
+    }
+
+    data class MainScreenState(
+        val data: String? = null,
+        val isLoading: Boolean = false
+    )
 }
-
-

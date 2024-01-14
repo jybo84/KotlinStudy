@@ -22,23 +22,22 @@ ViewModel будет содержать внутренний data class MainScre
 
 fun main() {
     val condition = MainScreenViewModel()
-    println(condition.loadData())
+    condition.loadData()
 
-    val condition2 = condition.loadDataEnd("Поступившие данные")
-    println(condition2)
+    condition.loadDataEnd("Поступившие данные")
 }
 
 class MainScreenViewModel {
     val mss = MainScreenState()
 
-    fun loadData(): MainScreenState {
+    fun loadData() {
         val newMss = mss.copy(isLoading = true)
-        return newMss
+        println(newMss)
     }
 
-    fun loadDataEnd(dataInput: String): MainScreenState {
+    fun loadDataEnd(dataInput: String) {
         val newMss = mss.copy(data = dataInput)
-        return newMss
+        println(newMss)
     }
 
     data class MainScreenState(

@@ -14,74 +14,40 @@ package Lesson_13
  */
 
 fun main() {
-    val total = mutableListOf<Any>()
-    showList(addContactInTelephoneBook())
+
+    val listCont = mutableListOf<TelNote>()
+
+    while (true) {
+        println("Введите имя контакта")
+        val userName = readln()
+        println("введите номер")
+        val userNum = readln().toLongOrNull()
+        println("Введите компанию")
+        val userCompany: String = readln()
+
+        userNum ?: println("ВЫ НЕ ВВЕЛИ НОМЕР ТЕЛЕФОНА. КОНТАКТ ДОБАВЛЕН НЕ БУДЕТ")
+        userNum?.let { TelNote(userName, it, userCompany) }?.let { listCont.add(it) }
+
+        println("Ещё будите добавлят контакт? да/нет")
+        val next = readln()
+        if (next.equals("нет", ignoreCase = true))
+            break
+    }
+
+    println(listCont)
+
 }
 
-fun showList(list: List<Any>) {
-    list.forEach { el -> println(el) }
-}
-
-data class TelephoneBasa(
-    var name: String?,
-    var number: Unit,
-    var company: String?,
-) {
+class TelNote(val name: String, private val number: Long, private val company: String?) {
 
     override fun toString(): String {
         return """
-                КАРТОЧКА КОНТАКТА
-            Имя: ${name}
-            Номер: ${number}
-            Компания: ${company}
-            ___________________________________
-        """.trimIndent()
+            |
+            |    КОНТАКТ
+            |ИМЯ: $name
+            |ТЕЛЕФОН: $number
+            |КОМПАНИЯ: $company
+            |
+        """.trimMargin()
     }
-}
-
-fun getName(): String? {
-    println("Введите имя")
-    val name: String? = readlnOrNull()
-    if (name != null) {
-        if (name.isEmpty()) return null
-    }
-    return name
-}
-
-fun getNumber(): Long? {
-    println("Введите номер")
-    val num = readln().toLongOrNull()
-    if (num == null)
-        println("Вы не ввели данные")
-    return num
-}
-
-fun getCompany(): String? {
-    Thread.sleep(1000)
-    println("Введите компанию (ПОЛЕ НЕ ЯВЛЯЕТСЯ ОБЯЗАТЕЛЬНЫМ)")
-    val company: String? = readlnOrNull()
-    if (company != null) {
-        if (company.isEmpty()) return null
-    }
-    return company
-}
-
-fun checkGetNumber() {
-    val check = getNumber()
-    if(check == null)
-        return
-    else
-        check
-}
-
-fun addContactInTelephoneBook(): List<Any> {
-    val list = mutableListOf<Any>()
-    do {
-        val contact = TelephoneBasa(getName(), checkGetNumber(), getCompany())
-        list.add(contact)
-        println("Еще будите добавлять контакт или СТОП")
-        val answer = readln()
-    } while (!answer.equals("стоп", ignoreCase = true))
-
-    return list
 }

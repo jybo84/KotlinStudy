@@ -12,9 +12,15 @@ package Lesson_13
 
 fun main() {
     println("Введите номер")
-    val userNumber = readln()
-    userNumber.toLong()
-    println(userNumber)
+    try {
+        val userNumber = readln()
+        userNumber.toLong()
+        println(userNumber)
+    } catch (e: NumberFormatException) {
+        println(e)                                                                               // TODO 1-й вариант вывода информации
+        e.printStackTrace()                                                                      // TODO 2-й вариант вывода информации
+        println("Программа упала. Пользователем введён параметр который программа не ожидала")   // TODO 3-й вариант вывода информации
+    }
 }
 
 class ContactBook(

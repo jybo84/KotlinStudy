@@ -18,10 +18,10 @@ fun main() {
         listOf("С новым годом", "С праздником", "Поздравляю", "Желаю всего хорошего", "С наступившим новым годом")
     val robot = Robot()
 
+    val one = robot.say(phrases)
 
-    println( robot.say(phrases))
-
-    println(robot.setModifier(phrases))
+    println(one)
+    println(robot.setModifier(one, lamda))
 }
 
 class Robot() {
@@ -31,7 +31,9 @@ class Robot() {
     }
 
 
-    fun setModifier(list: List<String>): String {
-        return list.random().reversed()
+    fun setModifier(text: String, lamda: (String) -> String): String {
+        return lamda(text)
     }
 }
+
+val lamda = { text: String -> text.reversed() }

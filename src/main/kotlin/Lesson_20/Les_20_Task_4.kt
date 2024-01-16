@@ -11,14 +11,13 @@ package Lesson_20
 
 fun main() {
 
-    val element = listOf("Январь", "февраль", "март", "апрель", "май", "июнь", "июль", "август")
+    val number = listOf("один", "два", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять", "десять")
 
-    val lamda = element.map{ val lam = println("нажата $it") }
-    println()
+    val lam: List<String> = number.map {
+        val lamda = { "нажат $it" }
+        lamda()
+    }
+    println(lam.joinToString("\n"))
 
-    val lamdaOdd = element.mapIndexed { index, s -> if (index % 2 == 0) print("$s ") }
+    lam.mapIndexed { index, it -> if (index % 2 == 0) println("нажми $it") }
 }
-
-
-
-

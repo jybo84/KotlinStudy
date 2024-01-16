@@ -19,7 +19,6 @@ fun main() {
     val robot = Robot()
 
     val one = robot.say(phrases)
-
     println(one)
     println(robot.setModifier(one, lamda))
 }

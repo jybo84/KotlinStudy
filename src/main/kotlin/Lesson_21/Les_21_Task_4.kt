@@ -22,7 +22,6 @@ fun main() {
 
     first.appendStartLowercase("КОТЛИН - ")
 }
-
 fun File.appendStartLowercase(text: String) {
     this.writeText((text + this.readText().lowercase()))
     println((text + this.readText().lowercase()))

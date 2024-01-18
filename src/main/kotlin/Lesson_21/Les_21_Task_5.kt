@@ -14,11 +14,11 @@ package Lesson_21
 fun main() {
 
     val listExperience = mapOf("power" to 50, "speed" to 70, "health" to 90)
-    listExperience.maxCategory()
+    println(listExperience.maxCategory())
 }
 
 
-fun Map<String, Int>.maxCategory() {
+fun Map<String, Int>.maxCategory(): Int {
     val maxValues = this.values.max()
-    println(maxValues)
+    return maxValues
 }

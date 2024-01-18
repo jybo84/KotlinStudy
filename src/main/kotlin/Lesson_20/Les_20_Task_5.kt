@@ -20,18 +20,18 @@ fun main() {
 
     val one = robot.say(phrases)
     println(one)
-    println(robot.setModifier(one, lamda))
+    println(robot.setModifier { lamda(one) })
 }
 
-class Robot() {
+class Robot(private var mod: (String) -> String = { it }) {
 
     fun say(list: List<String>): String {
         return list.random()
     }
 
 
-    fun setModifier(text: String, lamda: (String) -> String): String {
-        return lamda(text)
+    fun setModifier(mod: (String) -> String) {
+        this.mod = mod
     }
 }
 

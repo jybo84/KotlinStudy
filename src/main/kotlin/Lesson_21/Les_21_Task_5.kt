@@ -1,7 +1,6 @@
 package Lesson_21
 
 
-
 /*
 Задача 5* к Уроку 21
 
@@ -14,16 +13,12 @@ package Lesson_21
 
 fun main() {
 
-    val character = Character(experience = mapOf("power" to 50, "speed" to 70, "health" to 90))
-
-    character.maxCategory()
+    val listExperience = mapOf("power" to 50, "speed" to 70, "health" to 90)
+    listExperience.maxCat()
 }
 
 
-class Character(val experience: Map<String, Int>)
-
-
-fun Character.maxCategory() {
-    val maxValues = experience.values.max()
+fun Map<String, Int>.maxCat() {
+    val maxValues = this.values.max()
     println(maxValues)
 }

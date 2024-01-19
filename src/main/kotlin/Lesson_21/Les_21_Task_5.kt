@@ -18,7 +18,7 @@ fun main() {
 }
 
 
-fun Map<String, Int>.maxCategory(): Int {
-    val maxValues = this.values.max()
-    return maxValues
+fun Map<String, Int>.maxCategory(): String? {
+    val key = this.entries.find { it.value == this.values.max() }?.key
+    return key
 }

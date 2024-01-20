@@ -13,17 +13,12 @@ fun main() {
 
     val number = listOf("один", "два", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять", "десять")
 
-
-
-
-    val listNumberLamb: List<() -> Unit> = number.map { val lamda = { println("нажат $it")}
-   lamda
+    val listNumberLamb: List<() -> Unit> = number.map {
+        val lamda = { println("нажат $it") }
+        lamda
     }
+    listNumberLamb.mapIndexed { index, it -> if (index % 2 != 0) it() }
+}
 
-
-        println(listNumberLamb.joinToString("\n"))
-
-        listNumberLamb.mapIndexed { index, it -> if (index % 2 == 0) println("нажми $it") }
-    }
 
 

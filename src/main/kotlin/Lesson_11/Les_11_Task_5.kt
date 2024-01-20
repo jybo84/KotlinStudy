@@ -71,7 +71,6 @@ data class Forum(val tittleForum: String) {
 
     }
 
-
 //    - printThread() печатает в консоль все сообщения добавленные на форум в формате:
 //
 //    автор: сообщение
@@ -87,10 +86,8 @@ data class Forum(val tittleForum: String) {
 
 data class MemberForum(val name: String, val id: Int = (1..99).random())
 
+data class MessageForum(val message: String, val memberForum: MemberForum)
 
-data class MessageForum(val message: String, val memberForum: List<MemberForum>)
-
-                        //val authorId: Int = (1..99).random())
 
 
 

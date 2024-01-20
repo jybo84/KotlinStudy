@@ -13,26 +13,34 @@ package Lesson_20
 – Вызов say(). Метод выводит одну фразу в инвертированном виде.
  */
 
+
 fun main() {
     val phrases =
-        listOf("С новым годом", "С праздником", "Поздравляю", "Желаю всего хорошего", "С наступившим новым годом")
-    val robot = Robot()
+        listOf(
+            "С новым годом",
+            "С праздником",
+            "Поздравляю",
+            "Желаю всего хорошего",
+            "С наступившим новым годом",
+        )
+    val robot = Robot(phrases)
 
-    val one = robot.say(phrases)
-    println(one)
-    println(robot.setModifier { lamda(one) })
+    println(robot.say())
+    robot.setModifier { text: String -> text.reversed() }
+    println(robot.say())
 }
 
-class Robot(private var mod: (String) -> String = { it }) {
+class Robot(
+    var phrases: List<String>,
+    private var modificator: (String) -> String = { it },
+) {
 
-    fun say(list: List<String>): String {
-        return list.random()
+
+    fun say(): String {
+        return modificator(phrases.random())
     }
 
-
-    fun setModifier(mod: (String) -> String) {
-        this.mod = mod
+    fun setModifier(modificator: (String) -> String) {
+        this.modificator = modificator
     }
 }
-
-val lamda = { text: String -> text.reversed() }

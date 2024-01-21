@@ -33,30 +33,57 @@ fun main() {
     forum.forumPrintInfo()
     val mem3 = forum.createNewUser("NNN")
     forum.forumPrintInfo()
-    val mem4 =forum.createNewUser("Max")
+    val mem4 = forum.createNewUser("Max")
+    val mem5 = MemberForum("Какое то имя")
     forum.forumPrintInfo()
+    println()
 
-    println(forum.listMember)
+    forum.createNewMessage(MessageForum("Ребят привет. Я новый участник чата", mem2))
+    forum.createNewMessage(MessageForum("Добро пожаловать", mem1))
+    forum.createNewMessage(MessageForum("У нас тут строгие порядки", mem3))
+    forum.createNewMessage(MessageForum("Ребят привет. Я тоже хочу к Вам", mem5))
+    println()
 
-    forum.createNewMessage(MessageForum("sdd", mem2 ))
-
-
+    forum.printThread()
 
 }
 
 data class Forum(val tittleForum: String) {
 
-    val listMember = mutableListOf<MemberForum>()
+    private val listMember = mutableListOf<MemberForum>()
 
-    val listChat = mutableListOf<String>()
+    private val listChat = mutableListOf<String>()
 
-    //TODO здесь надо вернуть
-    fun createNewUser(name: String): List<MemberForum> {
-        listMember.add(MemberForum(name))
-        println("$name добавлен в список участников чата")
-        return listMember
+    //    - printThread() печатает в консоль все сообщения добавленные на форум в формате:
+//
+//    автор: сообщение
+//    автор: сообщение
+
+    fun printThread(){
+       println("""
+           
+           $tittleForum
+           $listMember
+           ${listChat.joinToString("\n")}
+       """.trimIndent())
+
     }
 
+
+
+    //- createNewUser() создает новых пользователей, принимая имя пользователя. Метод сохраняет нового пользователя в общий
+    //список и одновременно возвращает новый объект. Генерация id-шников новых пользователей происходит внутри;
+
+    //TODO здесь надо вернуть
+    fun createNewUser(name: String): MemberForum {
+        val newMem = MemberForum(name)
+        listMember.add(newMem)
+        println("$name добавлен в список участников чата")
+        return newMem
+    }
+
+    //- createNewMessage() создает сообщения, принимая id пользователя. Сообщения создаются только если такой пользователь
+//есть на форуме;
     fun createNewMessage(messageForum: MessageForum) {
         val ccc = mutableListOf<Int>()
         listMember.forEach { el ->
@@ -67,18 +94,17 @@ data class Forum(val tittleForum: String) {
             listChat.add(messageForum.message)
         } else println("Вас нет в участниках чата. Попросите админа Вас добавить")
 
-        println(listChat)
+       // println(listChat.joinToString("\n"))
 
     }
 
-//    - printThread() печатает в консоль все сообщения добавленные на форум в формате:
-//
-//    автор: сообщение
-//    автор: сообщение
+
+
+
     fun forumPrintInfo() {
         println(
             """   Форум: $tittleForum
-            | участники форума: $listMember
+            | участники форума: ${listMember}
         """.trimMargin()
         )
     }

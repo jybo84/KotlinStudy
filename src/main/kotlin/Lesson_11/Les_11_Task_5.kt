@@ -44,6 +44,7 @@ fun main() {
     forum.createNewMessage(MessageForum("Я очень строгий чувак", mem2))
     forum.createNewMessage(MessageForum("Иван, можно приступать к курсовой ???", mem1))
     forum.createNewMessage(MessageForum("Да, приступай. Одну не решенную задачу прощаю. Потом решишь", mem2))
+    forum.createNewMessage(MessageForum("Скоро у тебя будет свое PET андроид приожение. Я научу", mem4))
 
     println()
 
@@ -77,7 +78,7 @@ data class Forum(val tittleForum: String) {
             el.id
             listId.add(el.id)
         }
-        if (listId.contains(messageForum.memberForum.id)) {
+        if (messageForum.memberForum.id in listId) {
             listChat.add(messageForum.message)
             listName.add(messageForum.memberForum.name)
         } else println("Вас нет в участниках чата. Попросите админа Вас добавить")

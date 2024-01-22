@@ -53,6 +53,8 @@ fun main() {
 
 data class Forum(val tittleForum: String) {
 
+    var id: Int = 0
+
     private val listMember = mutableListOf<MemberForum>()
 
     private val listChat = mutableListOf<String>()
@@ -65,7 +67,8 @@ data class Forum(val tittleForum: String) {
     }
 
     fun createNewUser(name: String): MemberForum {
-        val newMem = MemberForum(name)
+        id++
+        val newMem = MemberForum(name, id)
         listMember.add(newMem)
         println("$name добавлен в список участников чата")
         return newMem
@@ -95,7 +98,7 @@ ${listMember.joinToString("\n")}
     }
 }
 
-data class MemberForum(val name: String, val id: Int = (1..99).random()) {
+data class MemberForum(val name: String, val id: Int = 0) {
     override fun toString(): String {
         return "имя -$name, id -$id"
     }

@@ -53,17 +53,16 @@ fun main() {
 
 data class Forum(val tittleForum: String) {
 
-    var id: Int = 0
+    private var id: Int = 0
 
     private val listMember = mutableListOf<MemberForum>()
 
-    private val listChat = mutableListOf<String>()
-
-    private val listName = mutableListOf<String>()
-
+    private val listChat = mutableListOf<MessageForum>()
 
     fun printThread() {
-        println(listName.zip(listChat) { name, chat -> "${name.uppercase()}: $chat" }.joinToString("\n"))
+        for (chat in listChat) {
+            println("${chat.memberForum.name.uppercase()}: ${chat.message}")
+        }
     }
 
     fun createNewUser(name: String): MemberForum {
@@ -75,15 +74,8 @@ data class Forum(val tittleForum: String) {
     }
 
     fun createNewMessage(messageForum: MessageForum) {
-        val listId = mutableListOf<Int>()
-
-        listMember.forEach { el ->
-            el.id
-            listId.add(el.id)
-        }
-        if (messageForum.memberForum.id in listId) {
-            listChat.add(messageForum.message)
-            listName.add(messageForum.memberForum.name)
+        if (listMember.any { it.id == messageForum.memberForum.id }) {
+            listChat.add(messageForum)
         } else println("Вас нет в участниках чата. Попросите админа Вас добавить")
     }
 

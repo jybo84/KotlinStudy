@@ -30,7 +30,7 @@ fun main() {
     chat.addMessage(Message("Привет", "Максим"))
     chat.addMessage(Message("ОК", "Федя"))
     chat.addMessage(Message("Пока", "Маня"))
-    chat.addThreadMessage(ChildMessage("         Новый участник", "Добавленный текст"), 2)
+    chat.addThreadMessage(ChildMessage("         Добавленный текст", "новый участник"), 6)
 
     chat.printChat()
 }
@@ -47,12 +47,10 @@ data class Chat(val title: String) {
         return listChat
     }
 
-    fun addThreadMessage(childMessage: ChildMessage, parentId: Int): Map<Int, Message> {
+    fun addThreadMessage(childMessage: ChildMessage, parentMessageId: Int): Map<Int, Message> {
         id++
-
-        listChat.forEach { el ->
-            if (parentId == el.key)
-                listChat.put(id, childMessage)
+        if (parentMessageId in listChat.keys) {
+            listChat.put(id, childMessage)
         }
         return listChat
     }

@@ -34,9 +34,10 @@ fun main() {
     chat.addThreadMessage("Fridon", "Я тебя подготовлю к собеседованию", 4)
 
 
-    chat.printChat(chat.listChat)
+    chat.printChat()
     println()
-    chat.printChat(chat.listChildChat)
+    //chat.printChat(chat.listChildChat)
+
 }
 
 class Chat(val title: String) {
@@ -55,10 +56,14 @@ class Chat(val title: String) {
         id++
         val childMessage = ChildMessage(name, text, id, parentId)
         listChildChat.add(childMessage)
+        val childMessage1: ChildMessage? = listChildChat.find { parentId.equals(listChat.forEach { el -> el.id }) }
+        if (childMessage1 != null) {
+            listChat.add(childMessage1)
+        }
     }
 
-    fun printChat(list: List<Message>) {
-        list.forEach { el ->
+    fun printChat() {
+        listChat.forEach { el ->
             println("id:${el.id} ${el.name}: ${el.text}")
         }
     }

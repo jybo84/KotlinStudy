@@ -21,7 +21,7 @@ Message и ChildMessage в соответствующей иерархии. У �
  */
 
 fun main() {
-    val chat = Chat("Котлин")
+    val chat = Chat("Чат - Курс по Андроид разработке")
     chat.addMessage("Максим", "Привет. Я хочу стать Андроид разработчиком")
     chat.addMessage("Иван", "Отлично. Мы тебя научим.")
     chat.addMessage("Fridon", "Ты по адресу")
@@ -33,18 +33,14 @@ fun main() {
     chat.addThreadMessage("Иван", "Потом займемся АндроидСтудией", 4)
     chat.addThreadMessage("Fridon", "Я тебя подготовлю к собеседованию", 4)
 
-
     chat.printChat()
-    println()
-    //chat.printChat(chat.listChildChat)
-
 }
 
 class Chat(val title: String) {
     private var id = 0
-    val listChat = mutableListOf<Message>()
+    private val listChat = mutableListOf<Message>()
 
-    val listChildChat = mutableListOf<ChildMessage>()
+    private val listChildChat = mutableListOf<ChildMessage>()
 
     fun addMessage(name: String, text: String) {
         id++
@@ -63,6 +59,7 @@ class Chat(val title: String) {
     }
 
     fun printChat() {
+        println(title)
         listChat.forEach { el ->
             println("id:${el.id} ${el.name}: ${el.text}")
         }

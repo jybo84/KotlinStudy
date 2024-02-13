@@ -1,5 +1,7 @@
 package Lesson_14
 
+import java.util.*
+
 /*
 Задача 5* к Уроку 14
 
@@ -36,7 +38,7 @@ fun main() {
     chat.printChat()
 }
 
-class Chat(val title: String) {
+class Chat(private val title: String) {
     private var id = 0
     private val listChat = mutableListOf<Message>()
 
@@ -52,16 +54,17 @@ class Chat(val title: String) {
         id++
         val childMessage = ChildMessage(name, text, id, parentId)
         listChildChat.add(childMessage)
-        val childMessage1: ChildMessage? = listChildChat.find { parentId.equals(listChat.forEach { el -> el.id }) }
-        if (childMessage1 != null) {
-            listChat.add(childMessage1)
-        }
     }
 
     fun printChat() {
         println(title)
-        listChat.forEach { el ->
-            println("id:${el.id} ${el.name}: ${el.text}")
+        val groupChildMessage = listChildChat.groupBy { it.parentId }
+
+        for (element in listChat) {
+            println("id ${element.id}. ${element.name}: ${element.text}")
+            groupChildMessage[element.id]?.forEach {
+                println("\tid " + ("${it.id}. ${it.name}: ${it.text}").uppercase(Locale.getDefault()))
+            }
         }
     }
 }

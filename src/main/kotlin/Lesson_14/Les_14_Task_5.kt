@@ -10,7 +10,6 @@ package Lesson_14
 - addThreadMessage() — добавляет сообщение в тред к предыдущему сообщению (для начала обсуждения), дополнительно
 принимает на вход parentMessageId для идентификации сообщения, под которым создается ветка обсуждения;
 
-
 Сообщения чата должны храниться в списке, в классе Chat. Для создания сообщений соответствующих типов используй классы
 Message и ChildMessage в соответствующей иерархии. У каждого типа сообщения должен быть id.
 
@@ -21,51 +20,63 @@ Message и ChildMessage в соответствующей иерархии. У �
 сообщение является экземпляром ChildMessage, или по id если это обычное сообщение.
  */
 
-
 fun main() {
-
     val chat = Chat("Котлин")
-    println(chat.listChat)
+    chat.addMessage("Максим", "Привет. Я хочу стать Андроид разработчиком")
+    chat.addMessage("Иван", "Отлично. Мы тебя научим.")
+    chat.addMessage("Fridon", "Ты по адресу")
+    chat.addMessage("Максим", "Что мне нужно делать?")
+    chat.addMessage("Светлана", "Я тоже в команде Ивана и Fridom'а ")
 
-    chat.addMessage(Message("Привет", "Максим"))
-    chat.addMessage(Message("ОК", "Федя"))
-    chat.addMessage(Message("Пока", "Маня"))
-    chat.addThreadMessage(ChildMessage("         Добавленный текст", "новый участник"), 6)
+    chat.addThreadMessage("Иван", "Тебе нужно решить 100 задач", 4)
+    chat.addThreadMessage("Fridon", "Со мной ты будешь делать курсовую", 4)
+    chat.addThreadMessage("Иван", "Потом займемся АндроидСтудией", 4)
+    chat.addThreadMessage("Fridon", "Я тебя подготовлю к собеседованию", 4)
 
-    chat.printChat()
+
+    chat.printChat(chat.listChat)
+    println()
+    chat.printChat(chat.listChildChat)
 }
 
-
-data class Chat(val title: String) {
+class Chat(val title: String) {
     private var id = 0
+    val listChat = mutableListOf<Message>()
 
-    val listChat = mutableMapOf<Int, Message>()
+    val listChildChat = mutableListOf<ChildMessage>()
 
-    fun addMessage(message: Message): Map<Int, Message> {
+    fun addMessage(name: String, text: String) {
         id++
-        listChat.put(id, message)
-        return listChat
+        val message = Message(name, text, id)
+        listChat.add(message)
     }
 
-    fun addThreadMessage(childMessage: ChildMessage, parentMessageId: Int): Map<Int, Message> {
+    fun addThreadMessage(name: String, text: String, parentId: Int) {
         id++
-        if (parentMessageId in listChat.keys) {
-            listChat.put(id, childMessage)
+        val childMessage = ChildMessage(name, text, id, parentId)
+        listChildChat.add(childMessage)
+    }
+
+    fun printChat(list: List<Message>) {
+        list.forEach { el ->
+            println("id:${el.id} ${el.name}: ${el.text}")
         }
-        return listChat
-    }
-
-
-    fun printChat() {
-        println(listChat.map { "id:${it.key} ${it.value}" }.joinToString("\n"))
     }
 }
 
-
-open class Message(val text: String, val name: String) {
+open class Message(
+    val name: String,
+    val text: String,
+    val id: Int
+) {
     override fun toString(): String {
-        return "\u001B[32m${name.uppercase()}: \u001B[33m $text"
+        return "Message(name='$name', text='$text', id=$id)\n"
     }
 }
 
-class ChildMessage(text: String, name: String) : Message(text, name)
+class ChildMessage(
+    name: String,
+    text: String,
+    id: Int,
+    val parentId: Int
+) : Message(name, text, id)

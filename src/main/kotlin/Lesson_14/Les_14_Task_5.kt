@@ -42,6 +42,73 @@ class Chat(private val title: String) {
     private var id = 0
     private val listChat = mutableListOf<Message>()
 
+    fun addMessage(name: String, text: String) {
+        id++
+        val message = Message(name, text, id)
+        listChat.add(message)
+    }
+
+    fun addThreadMessage(name: String, text: String, parentId: Int) {
+        id++
+        val childMessage = ChildMessage(name, text, id, parentId)
+        listChat.add(childMessage)
+    }
+
+    fun printChat() {
+        val threadMap: Map<Int, List<Message>> = listChat.groupBy {
+            if (it is ChildMessage)
+                it.parentId
+            else
+                it.id
+        }
+        println("\t\t$title")
+        for (el in threadMap) {
+            println(el.value.joinToString("\n"))
+        }
+    }
+
+
+    open class Message(
+        private val name: String,
+        private val text: String,
+        val id: Int
+    ) {
+        override fun toString(): String {
+            return "id-$id:  $name:$text"
+        }
+    }
+
+    class ChildMessage(
+        name: String,
+        text: String,
+        id: Int,
+        val parentId: Int
+    ) : Message(name, text, id)
+}
+
+//TODO Variant First
+
+/*
+fun main() {
+    val chat = Chat("Чат - Курс по Андроид разработке")
+    chat.addMessage("Максим", "Привет. Я хочу стать Андроид разработчиком")
+    chat.addMessage("Иван", "Отлично. Мы тебя научим.")
+    chat.addMessage("Fridon", "Ты по адресу")
+    chat.addMessage("Максим", "Что мне нужно делать?")
+    chat.addMessage("Светлана", "Я тоже в команде Ивана и Fridom'а ")
+
+    chat.addThreadMessage("Иван", "Тебе нужно решить 100 задач", 4)
+    chat.addThreadMessage("Fridon", "Со мной ты будешь делать курсовую", 4)
+    chat.addThreadMessage("Иван", "Потом займемся АндроидСтудией", 4)
+    chat.addThreadMessage("Fridon", "Я тебя подготовлю к собеседованию", 4)
+
+    chat.printChat()
+}
+
+class Chat(private val title: String) {
+    private var id = 0
+    private val listChat = mutableListOf<Message>()
+
     private val listChildChat = mutableListOf<ChildMessage>()
 
     fun addMessage(name: String, text: String) {
@@ -85,3 +152,4 @@ class ChildMessage(
     id: Int,
     val parentId: Int
 ) : Message(name, text, id)
+*/

@@ -54,37 +54,56 @@ class Chat(private val title: String) {
         listChat.add(childMessage)
     }
 
+//    fun printChat() {
+//        val threadMap: Map<Int, List<Message>> = listChat.groupBy {
+//            if (it is ChildMessage)
+//                it.parentId
+//            else
+//                it.id
+//        }
+//        println("\t\t$title")
+//        for (el in threadMap) {
+//            println(el.value.joinToString("\n"))
+//        }
+
     fun printChat() {
-        val threadMap: Map<Int, List<Message>> = listChat.groupBy {
+        println("\t\t$title")
+        val threadMap = listChat.groupBy {
             if (it is ChildMessage)
                 it.parentId
             else
                 it.id
         }
-        println("\t\t$title")
-        for (el in threadMap) {
-            println(el.value.joinToString("\n"))
+        threadMap.forEach { el ->
+            el.value.forEach {
+                if (it is ChildMessage) {
+                    println(("\t$it").uppercase(Locale.getDefault()))
+                } else {
+                    println(it)
+                }
+            }
         }
     }
-
-
-    open class Message(
-        private val name: String,
-        private val text: String,
-        val id: Int
-    ) {
-        override fun toString(): String {
-            return "id-$id:  $name:$text"
-        }
-    }
-
-    class ChildMessage(
-        name: String,
-        text: String,
-        id: Int,
-        val parentId: Int
-    ) : Message(name, text, id)
 }
+
+
+open class Message(
+    private val name: String,
+    private val text: String,
+    val id: Int
+) {
+    override fun toString(): String {
+        return "id-$id:  $name:$text"
+    }
+}
+
+class ChildMessage(
+    name: String,
+    text: String,
+    id: Int,
+    val parentId: Int
+) : Message(name, text, id)
+
 
 //TODO Variant First
 
